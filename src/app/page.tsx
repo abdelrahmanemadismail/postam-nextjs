@@ -1,21 +1,25 @@
-import { getLocale } from 'next-intl/server';
-import { LocaleSwitcher } from '@/components/locale-switcher';
-import { ModeToggle } from '@/components/theme-toggle';
-import { HomeContent } from '@/components/home-content';
-import type { Locale } from '@/lib/i18n';
+"use client";
 
-export default async function Home() {
-  const locale = await getLocale() as Locale;
+import { Header } from "@/components/header";
+import { HeroSection } from "@/components/landing/hero-section";
+import { ProcessSection } from "@/components/landing/process-section";
+import { BuyForMeSection } from "@/components/landing/buy-for-me-section";
+import { StoriesSection } from "@/components/landing/stories-section";
+import { FooterSection } from "@/components/landing/footer-section";
 
+export default function Home() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <div className="fixed top-4 right-4 flex gap-2 z-50">
-        <LocaleSwitcher currentLocale={locale} />
-        <ModeToggle />
-      </div>
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <HomeContent />
+    <div className="flex min-h-screen flex-col bg-background text-foreground">
+      <Header />
+
+      <main>
+        <HeroSection />
+        <ProcessSection />
+        <BuyForMeSection />
+        <StoriesSection />
       </main>
+
+      <FooterSection />
     </div>
   );
 }

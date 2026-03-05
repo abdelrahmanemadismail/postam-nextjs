@@ -1,0 +1,130 @@
+{
+  "nav": {
+    "orders": "Orders",
+    "favorites": "Favorites",
+    "languageLabel": "Language",
+    "howItWorks": "How it Works",
+    "pricing": "Pricing",
+    "blog": "Blog",
+    "login": "Login",
+    "signUp": "Sign Up",
+    "quick": "Quick Actions",
+    "explore": "Explore",
+    "settings": "Settings",
+    "theme": "Theme",
+    "myAccount": "My Account",
+    "logout": "Logout"
+  },
+  "hero": {
+    "titleLine1": "Shop Turkey.",
+    "titleLine2": "Delivered to your Door.",
+    "description": "Access thousands of Turkish online stores. We provide you with a local address, consolidate your packages, and ship them to Kuwait and beyond.",
+    "imageAlt": "Woman shopping carrying bags in a modern mall setting"
+  },
+  "trending": {
+    "label": "TRENDING NOW",
+    "title": "Istanbul Fashion Week Collection",
+    "description": "Shop the latest trends from boutiques in Nisantasi and Galata."
+  },
+  "cards": {
+    "startShoppingLabel": "START SHOPPING",
+    "startShoppingTitle": "Get Your Free Address",
+    "startShoppingDescription": "Instantly get a locker address in Istanbul to use for your online shopping.",
+    "startShoppingButton": "Get Address Now",
+    "conciergeLabel": "CONCIERGE",
+    "conciergeTitle": "We Buy For You",
+    "conciergeDescription": "Can't pay with your card? Send us the link and we'll purchase it for you.",
+    "conciergeButton": "Start Order"
+  },
+  "process": {
+    "label": "Simple Process",
+    "title": "From Turkey to Your Doorstep",
+    "description": "We handle the logistics so you can enjoy the shopping. Here is how Postam makes international shopping effortless.",
+    "steps": [
+      {
+        "title": "1. Register Free",
+        "description": "Sign up in seconds and receive your personal Turkish shipping address instantly."
+      },
+      {
+        "title": "2. Shop Boutiques",
+        "description": "Use your new address at checkout on Trendyol, Hepsiburada, and more."
+      },
+      {
+        "title": "3. We Consolidate",
+        "description": "Combine multiple packages into one box to save up to 80% on shipping costs."
+      },
+      {
+        "title": "4. Fast Delivery",
+        "description": "Receive your goods in Kuwait within 2-4 business days via express carriers."
+      }
+    ]
+  },
+  "buyForMe": {
+    "title": "Buy For Me Service",
+    "description": "Found something you love but the store doesn't accept your card? Paste the product link below, and we'll buy it for you.",
+    "placeholder": "Paste product URL here (e.g. trendyol.com/...)",
+    "button": "Get Quote",
+    "supportedStores": "Supported stores: Trendyol, Hepsiburada, Zara TR, Massimo Dutti TR, and 50+ more."
+  },
+  "stories": {
+    "title": "Customer Stories",
+    "subtitle": "Join 10,000+ happy shoppers in Kuwait.",
+    "portraitAlt": "Portrait of {name}"
+  },
+  "testimonials": [
+    {
+      "quote": "I used Postam for my Black Friday shopping from Turkey. The consolidation service saved me so much on shipping to Kuwait City. Arrived in just 3 days!",
+      "name": "Ali Al-Sabah",
+      "city": "Kuwait City"
+    },
+    {
+      "quote": "The Buy For Me service is a lifesaver. I wanted a specific coffee set from a local Turkish artisan who didn't ship internationally. Postam handled everything.",
+      "name": "Fatima Hassan",
+      "city": "Salmiya"
+    },
+    {
+      "quote": "Great customer support. I had an issue with a damaged item from the seller, and Postam helped me return it before shipping it to me. Very trustworthy.",
+      "name": "Mohammad K.",
+      "city": "Jahra"
+    }
+  ],
+  "footer": {
+    "badges": {
+      "onTime": "On-time Delivery",
+      "singlePrice": "Single Price Shipping",
+      "secure": "Secure Payment",
+      "support": "24/7 Support"
+    },
+    "about": {
+      "description": "Your reliable bridge between Turkey and the world. We make international shopping simple, secure, and affordable for everyone in the Gulf region."
+    },
+    "company": {
+      "title": "Company",
+      "links": ["About Us", "Careers", "Blog", "Contact"]
+    },
+    "services": {
+      "title": "Services",
+      "links": ["Buy For Me", "Shipping Calculator", "Prohibited Items", "Pricing"]
+    },
+    "offices": {
+      "title": "Our Offices",
+      "locations": [
+        {
+          "name": "Istanbul, Turkey",
+          "addressLines": ["Maslak Mah. Buyukdere Cad.", "Sariyer, Istanbul"],
+          "imageAlt": "Abstract cityscape of Istanbul"
+        },
+        {
+          "name": "Kuwait City, Kuwait",
+          "addressLines": ["Al Hamra Tower, 34th Floor", "Sharq, Kuwait City"],
+          "imageAlt": "Abstract cityscape of Kuwait City"
+        }
+      ]
+    },
+    "legal": {
+      "copyright": "© 2026 Postam Logistics. All rights reserved.",
+      "privacy": "Privacy Policy",
+      "terms": "Terms of Service"
+    }
+  }
+}

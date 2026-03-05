@@ -1,0 +1,130 @@
+{
+  "nav": {
+    "orders": "Siparişler",
+    "favorites": "Favoriler",
+    "languageLabel": "Dil",
+    "howItWorks": "Nasıl Çalışır",
+    "pricing": "Fiyatlar",
+    "blog": "Blog",
+    "login": "Giriş Yap",
+    "signUp": "Kayıt Ol",
+    "quick": "Hızlı İşlemler",
+    "explore": "Keşfet",
+    "settings": "Ayarlar",
+    "theme": "Tema",
+    "myAccount": "Hesabım",
+    "logout": "Çıkış Yap"
+  },
+  "hero": {
+    "titleLine1": "Türkiye'den Alışveriş.",
+    "titleLine2": "Kapınıza Teslim.",
+    "description": "Binlerce Türk online mağazasına erişin. Size yerel bir adres sağlar, paketlerinizi birleştirir ve Kuveyt'e ve ötesine göndeririz.",
+    "imageAlt": "Modern bir AVM'de alışveriş yapan ve çantalar taşıyan kadın"
+  },
+  "trending": {
+    "label": "ŞU ANDA TREND",
+    "title": "İstanbul Moda Haftası Koleksiyonu",
+    "description": "Nişantaşı ve Galata'daki butiklerden en yeni trendleri keşfedin."
+  },
+  "cards": {
+    "startShoppingLabel": "ALIŞVERİŞE BAŞLA",
+    "startShoppingTitle": "Ücretsiz Adresinizi Alın",
+    "startShoppingDescription": "İstanbul'da bir dolap adresini anında alın ve online alışverişte kullanın.",
+    "startShoppingButton": "Hemen Adres Al",
+    "conciergeLabel": "KONSİYERJ",
+    "conciergeTitle": "Sizin İçin Satın Alırız",
+    "conciergeDescription": "Kartınızla ödeyemiyor musunuz? Linki gönderin, sizin için satın alalım.",
+    "conciergeButton": "Sipariş Başlat"
+  },
+  "process": {
+    "label": "Basit Süreç",
+    "title": "Türkiye'den Kapınıza",
+    "description": "Lojistiği biz hallederiz, siz alışverişin keyfini çıkarın. Postam uluslararası alışverişi kolaylaştırır.",
+    "steps": [
+      {
+        "title": "1. Ücretsiz Kaydol",
+        "description": "Saniyeler içinde kaydolun ve size özel Türk kargo adresinizi alın."
+      },
+      {
+        "title": "2. Butiklerden Alışveriş",
+        "description": "Yeni adresinizi Trendyol, Hepsiburada ve diğerlerinde kullanın."
+      },
+      {
+        "title": "3. Paketleri Birleştiriyoruz",
+        "description": "Birden fazla paketi tek kutuda birleştirerek kargoda %80'e varan tasarruf sağlayın."
+      },
+      {
+        "title": "4. Hızlı Teslimat",
+        "description": "Ürünlerinizi Kuveyt'e 2-4 iş gününde ekspres kargoyla alın."
+      }
+    ]
+  },
+  "buyForMe": {
+    "title": "Benim İçin Satın Al Hizmeti",
+    "description": "Beğenip de kartınızla ödeyemediğiniz bir ürün mü buldunuz? Ürün linkini aşağıya yapıştırın, sizin için satın alalım.",
+    "placeholder": "Ürün URL'sini buraya yapıştırın (örneğin: trendyol.com/...)",
+    "button": "Teklif Al",
+    "supportedStores": "Desteklenen mağazalar: Trendyol, Hepsiburada, Zara TR, Massimo Dutti TR ve 50+ daha."
+  },
+  "stories": {
+    "title": "Müşteri Hikayeleri",
+    "subtitle": "Kuveyt'teki 10.000+ mutlu alışverişçiye katılın.",
+    "portraitAlt": "{name} portresi"
+  },
+  "testimonials": [
+    {
+      "quote": "Postam'ı Türkiye'deki Kara Cuma alışverişim için kullandım. Konsolidasyon hizmeti Kuveyt Şehri'ne kargoda bana çok kazandırdı. Sadece 3 günde geldi!",
+      "name": "Ali Al-Sabah",
+      "city": "Kuveyt Şehri"
+    },
+    {
+      "quote": "Benim İçin Satın Al hizmeti hayat kurtarıcı. Uluslararası gönderim yapmayan yerel bir Türk zanaatkardan özel bir kahve seti istiyordum. Postam her şeyi halletti.",
+      "name": "Fatima Hassan",
+      "city": "Salmiya"
+    },
+    {
+      "quote": "Harika müşteri desteği. Satıcıdan gelen hasarlı bir ürünle ilgili sorun yaşadım ve Postam, bana göndermeden önce iade etmemde yardımcı oldu. Çok güvenilir.",
+      "name": "Mohammad K.",
+      "city": "Jahra"
+    }
+  ],
+  "footer": {
+    "badges": {
+      "onTime": "Zamanında Teslimat",
+      "singlePrice": "Tek Fiyatlı Kargo",
+      "secure": "Güvenli Ödeme",
+      "support": "7/24 Destek"
+    },
+    "about": {
+      "description": "Türkiye ile dünya arasında güvenilir bir köprü. Uluslararası alışverişi basit, güvenli ve uygun maliyetli hale getiriyoruz."
+    },
+    "company": {
+      "title": "Şirket",
+      "links": ["Hakkımızda", "Kariyer", "Blog", "İletişim"]
+    },
+    "services": {
+      "title": "Hizmetler",
+      "links": ["Benim İçin Satın Al", "Kargo Hesaplayıcı", "Yasaklı Ürünler", "Fiyatlar"]
+    },
+    "offices": {
+      "title": "Ofislerimiz",
+      "locations": [
+        {
+          "name": "İstanbul, Türkiye",
+          "addressLines": ["Maslak Mah. Buyukdere Cad.", "Sariyer, Istanbul"],
+          "imageAlt": "İstanbul'un soyut şehir manzarası"
+        },
+        {
+          "name": "Kuveyt Şehri, Kuveyt",
+          "addressLines": ["Al Hamra Kulesi, 34. Kat", "Sharq, Kuveyt Şehri"],
+          "imageAlt": "Kuveyt Şehri'nin soyut şehir manzarası"
+        }
+      ]
+    },
+    "legal": {
+      "copyright": "© 2026 Postam Logistics. Tüm hakları saklıdır.",
+      "privacy": "Gizlilik Politikası",
+      "terms": "Hizmet Şartları"
+    }
+  }
+}
