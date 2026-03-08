@@ -11,7 +11,7 @@ import { getSiteSettingsQuery } from "@/sanity/lib/queries";
 import { urlFor } from "@/sanity/lib/image";
 
 // Positional hrefs matching footer.company.links order in i18n
-const COMPANY_HREFS = ["/about", "/ca", "/blog", "/contact"];
+const COMPANY_HREFS = ["/about", "/careers", "/blog", "/contact"];
 // Positional hrefs matching footer.services.links order in i18n
 const SERVICES_HREFS = ["/help-center/buy-for-me", "#", "/help-center/prohibited-items", "#"];
 
