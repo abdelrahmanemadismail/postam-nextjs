@@ -146,5 +146,16 @@
     "newsletterPlaceholder": "Enter your email address",
     "newsletterButton": "Subscribe",
     "backToBlog": "Back to blog"
+  },
+  "legal": {
+    "legal": "Legal",
+    "privacyPolicy": "Privacy Policy",
+    "termsOfService": "Terms of Service",
+    "version": "Version",
+    "effectiveDate": "Effective date",
+    "versionHistory": "Version history",
+    "current": "Current",
+    "noContent": "Content not available yet.",
+    "backHome": "Back to home"
   }
 }

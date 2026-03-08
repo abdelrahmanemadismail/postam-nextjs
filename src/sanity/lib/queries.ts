@@ -49,3 +49,24 @@ export const getBlogCategoriesQuery = defineQuery(`*[_type == "category"] | orde
   "title": coalesce(title[$locale], title[$defaultLocale], title.en),
   "slug": slug.current,
 }`);
+
+export const getActiveLegalDocQuery = defineQuery(`
+*[_type == "legalDocVersion" && docType == $docType && isActive == true] | order(effectiveDate desc)[0]{
+  _id,
+  docType,
+  version,
+  effectiveDate,
+  "title": coalesce(title[$locale], title[$defaultLocale], title.en),
+  "content": coalesce(content[$locale], content[$defaultLocale], content.en),
+  "changelog": coalesce(changelog[$locale], changelog[$defaultLocale], changelog.en),
+}`);
+
+export const getLegalDocVersionsQuery = defineQuery(`
+*[_type == "legalDocVersion" && docType == $docType] | order(effectiveDate desc){
+  _id,
+  version,
+  effectiveDate,
+  isActive,
+  "title": coalesce(title[$locale], title[$defaultLocale], title.en),
+  "changelog": coalesce(changelog[$locale], changelog[$defaultLocale], changelog.en),
+}`);

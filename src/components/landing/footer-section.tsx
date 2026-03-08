@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { useTranslations } from "next-intl";
 import {
   Clock,
@@ -130,12 +131,12 @@ export function FooterSection() {
         <div className="flex flex-col items-center justify-between gap-4 border-t border-background/20 py-8 text-xs text-muted-foreground md:flex-row">
           <p>{t("footer.legal.copyright")}</p>
           <div className="flex gap-6">
-            <a className="transition hover:text-background" href="#">
+            <Link className="transition hover:text-background" href="/privacy-policy">
               {t("footer.legal.privacy")}
-            </a>
-            <a className="transition hover:text-background" href="#">
+            </Link>
+            <Link className="transition hover:text-background" href="/terms-of-service">
               {t("footer.legal.terms")}
-            </a>
+            </Link>
           </div>
         </div>
       </div>

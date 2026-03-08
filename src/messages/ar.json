@@ -146,5 +146,16 @@
     "newsletterPlaceholder": "أدخل بريدك الإلكتروني",
     "newsletterButton": "اشترك",
     "backToBlog": "العودة إلى المدونة"
+  },
+  "legal": {
+    "legal": "قانوني",
+    "privacyPolicy": "سياسة الخصوصية",
+    "termsOfService": "شروط الخدمة",
+    "version": "الإصدار",
+    "effectiveDate": "تاريخ السريان",
+    "versionHistory": "سجل الإصدارات",
+    "current": "الحالي",
+    "noContent": "المحتوى غير متاح بعد.",
+    "backHome": "العودة للرئيسية"
   }
 }

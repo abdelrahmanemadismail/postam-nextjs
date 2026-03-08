@@ -2,6 +2,7 @@ import { type SchemaTypeDefinition } from 'sanity'
 
 import {blockContentType} from './blockContentType'
 import {categoryType} from './categoryType'
+import {legalDocVersionType} from './legalDocVersionType'
 import {localizedBlockContentType} from './localizedBlockContentType'
 import {localizedStringType} from './localizedStringType'
 import {localizedTextType} from './localizedTextType'
@@ -15,5 +16,6 @@ export const schema: { types: SchemaTypeDefinition[] } = {
     localizedBlockContentType,
     categoryType,
     postType,
+    legalDocVersionType,
   ],
 }

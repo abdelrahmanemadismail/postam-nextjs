@@ -146,5 +146,16 @@
     "newsletterPlaceholder": "E-posta adresinizi girin",
     "newsletterButton": "Abone Ol",
     "backToBlog": "Bloga dön"
+  },
+  "legal": {
+    "legal": "Yasal",
+    "privacyPolicy": "Gizlilik Politikası",
+    "termsOfService": "Hizmet Şartları",
+    "version": "Sürüm",
+    "effectiveDate": "Yürürlük tarihi",
+    "versionHistory": "Sürüm geçmişi",
+    "current": "Güncel",
+    "noContent": "İçerik henüz mevcut değil.",
+    "backHome": "Ana sayfaya dön"
   }
 }
