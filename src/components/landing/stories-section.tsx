@@ -5,6 +5,7 @@ import { sanityFetch } from "@/sanity/lib/live";
 import { getFeaturedTestimonialsQuery } from "@/sanity/lib/queries";
 import { urlFor } from "@/sanity/lib/image";
 import { defaultLocale } from "@/lib/i18n";
+import { resolveStr } from "@/lib/resolve-str";
 
 export async function StoriesSection() {
   const t = await getTranslations();
@@ -45,7 +46,7 @@ export async function StoriesSection() {
                   {hasHalf && <StarHalf className="h-4 w-4 fill-current" />}
                 </div>
                 <p className="mb-6 text-sm text-muted-foreground">
-                  &ldquo;{testimonial.quote}&rdquo;
+                  &ldquo;{resolveStr(testimonial.quote)}&rdquo;
                 </p>
                 <div className="flex items-center gap-4">
                   {testimonial.image ? (
