@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import { useTranslations } from "next-intl";
 import {
   ShoppingBag,
@@ -50,14 +51,14 @@ export function Header() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="flex h-16 sm:h-20 items-center justify-between gap-4">
             {/* Logo */}
-            <a href="#" className="flex items-center gap-2.5 flex-shrink-0 hover:opacity-80 transition-opacity">
+            <Link href="/" className="flex items-center gap-2.5 flex-shrink-0 hover:opacity-80 transition-opacity">
               <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-gradient-to-br from-primary to-primary/80 text-lg font-bold text-primary-foreground shadow-lg">
                 P
               </div>
               <span className="text-xl sm:text-2xl font-bold tracking-tight bg-gradient-to-r from-primary to-primary/80 bg-clip-text text-transparent">
                 Postam
               </span>
-            </a>
+            </Link>
 
             {/* Desktop Navigation */}
             <div className="hidden md:flex items-center gap-1">
@@ -78,12 +79,14 @@ export function Header() {
                 {t("nav.pricing")}
               </Button>
               <Button
+                asChild
                 variant="ghost"
                 className="text-sm font-medium text-muted-foreground hover:text-primary gap-2"
-                onClick={() => {}}
               >
-                <Newspaper className="h-4 w-4" />
-                {t("nav.blog")}
+                <Link href="/blog">
+                  <Newspaper className="h-4 w-4" />
+                  {t("nav.blog")}
+                </Link>
               </Button>
             </div>
 

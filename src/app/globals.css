@@ -122,5 +122,46 @@
   }
   body {
     @apply bg-background text-foreground;
+
+  /* Markdown Content Styling */
+  .markdown-content {
+    @apply text-foreground;
+    font-size: 1.0625rem;
+    line-height: 1.75;
+  }
+
+  .markdown-content > *:first-child {
+    margin-top: 0 !important;
+  }
+
+  .markdown-content > *:last-child {
+    margin-bottom: 0 !important;
+  }
+
+  /* Task list styling */
+  .markdown-content ul.contains-task-list {
+    @apply list-none ml-0;
+  }
+
+  .markdown-content ul.contains-task-list li {
+    @apply flex items-start gap-2;
+  }
+
+  /* Code block scrollbar */
+  .markdown-content pre::-webkit-scrollbar {
+    height: 8px;
+  }
+
+  .markdown-content pre::-webkit-scrollbar-track {
+    @apply bg-muted rounded;
+  }
+
+  .markdown-content pre::-webkit-scrollbar-thumb {
+    @apply bg-muted-foreground/30 rounded;
+  }
+
+  .markdown-content pre::-webkit-scrollbar-thumb:hover {
+    @apply bg-muted-foreground/50;
+  }
   }
 }

@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useTranslations } from "next-intl";
 import {
   Heart,
@@ -24,15 +25,25 @@ interface MobileMenuProps {
 export function MobileMenu({ onClose, isOpen }: MobileMenuProps) {
   const t = useTranslations();
 
-  const MenuItem = ({ icon: Icon, label, isPrimary = false, ...props }: any) => (
-    <a
+  const MenuItem = ({
+    icon: Icon,
+    label,
+    isPrimary = false,
+    href,
+  }: {
+    icon: React.ComponentType<{ className?: string }>;
+    label: string;
+    isPrimary?: boolean;
+    href: string;
+  }) => (
+    <Link
+      href={href}
       onClick={onClose}
       className={`group relative flex items-center gap-3 px-4 py-4 text-sm font-medium transition-all duration-250 overflow-hidden ${
         isPrimary
           ? "text-primary"
           : "text-muted-foreground hover:text-foreground"
       }`}
-      {...props}
     >
       {/* Background gradient on hover */}
       <div className={`absolute inset-0 transition-all duration-250 ${
@@ -65,7 +76,7 @@ export function MobileMenu({ onClose, isOpen }: MobileMenuProps) {
           ? "bg-gradient-to-r from-primary/60 to-primary/20 scale-x-0 group-hover:scale-x-100 origin-left"
           : "bg-border scale-x-0 group-hover:scale-x-100 origin-left"
       }`} />
-    </a>
+    </Link>
   );
 
   const SectionHeader = ({ title, icon: Icon }: { title: string; icon?: any }) => (
@@ -111,7 +122,7 @@ export function MobileMenu({ onClose, isOpen }: MobileMenuProps) {
             <SectionCard className="bg-gradient-to-br from-card to-card/80 border-border divide-y divide-border space-y-0 overflow-hidden">
               <MenuItem icon={BookOpen} label={t("nav.howItWorks")} href="#" />
               <MenuItem icon={Zap} label={t("nav.pricing")} href="#" />
-              <MenuItem icon={Newspaper} label={t("nav.blog")} href="#" />
+              <MenuItem icon={Newspaper} label={t("nav.blog")} href="/blog" />
             </SectionCard>
           </div>
 

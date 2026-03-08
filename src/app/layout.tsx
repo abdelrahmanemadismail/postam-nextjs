@@ -39,9 +39,10 @@ export default async function RootLayout({
 }>) {
   const locale = await getLocale() as Locale;
   const messages = await getMessages();
+  const direction = getDirection(locale);
 
   return (
-    <html lang={locale} dir={getDirection(locale)} suppressHydrationWarning>
+    <html lang={locale} dir={direction} suppressHydrationWarning>
       <body
         className={`${inter.variable} ${spaceMono.variable} ${cairoArabic.variable} antialiased`}
       >
@@ -52,7 +53,7 @@ export default async function RootLayout({
           disableTransitionOnChange
         >
           <NextIntlClientProvider messages={messages}>
-            <DirectionProvider dir={getDirection(locale)}>
+            <DirectionProvider dir={direction}>
               {children}
             </DirectionProvider>
           </NextIntlClientProvider>

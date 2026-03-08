@@ -126,5 +126,25 @@
       "privacy": "Privacy Policy",
       "terms": "Terms of Service"
     }
+  },
+  "blog": {
+    "badge": "The Postam Hub",
+    "titlePrefix": "Your Gateway to",
+    "titleHighlight": "Turkish Shopping",
+    "description": "Discover stores, shipping guides, and practical tips for buying from Turkey and receiving in Kuwait.",
+    "allPosts": "All Posts",
+    "search": "Search",
+    "searchPlaceholder": "Search articles...",
+    "result": "result",
+    "results": "results",
+    "noResults": "No posts matched your search. Try another keyword or category.",
+    "minRead": "min read",
+    "readMore": "Read more",
+    "loadMore": "Load More Articles",
+    "newsletterTitle": "Never Miss a Deal from Turkey",
+    "newsletterDescription": "Join thousands of shoppers and receive updates about sales, stores, and shipping tips.",
+    "newsletterPlaceholder": "Enter your email address",
+    "newsletterButton": "Subscribe",
+    "backToBlog": "Back to blog"
   }
 }

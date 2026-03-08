@@ -126,5 +126,25 @@
       "privacy": "Gizlilik Politikası",
       "terms": "Hizmet Şartları"
     }
+  },
+  "blog": {
+    "badge": "Postam Merkezi",
+    "titlePrefix": "Türkiye Alışverişine",
+    "titleHighlight": "Açılan Kapınız",
+    "description": "Türkiye'den alışveriş ve Kuveyt'e teslimat için mağazaları, kargo rehberlerini ve pratik ipuçlarını keşfedin.",
+    "allPosts": "Tüm Yazılar",
+    "search": "Ara",
+    "searchPlaceholder": "Yazılarda ara...",
+    "result": "sonuç",
+    "results": "sonuç",
+    "noResults": "Aramanıza uygun yazı bulunamadı. Farklı bir kelime veya kategori deneyin.",
+    "minRead": "dk okuma",
+    "readMore": "Devamını oku",
+    "loadMore": "Daha Fazla Yazı Yükle",
+    "newsletterTitle": "Türkiye'den Fırsatları Kaçırmayın",
+    "newsletterDescription": "Binlerce alışverişçiye katılın; kampanyalar, mağazalar ve kargo ipuçları için düzenli güncellemeler alın.",
+    "newsletterPlaceholder": "E-posta adresinizi girin",
+    "newsletterButton": "Abone Ol",
+    "backToBlog": "Bloga dön"
   }
 }

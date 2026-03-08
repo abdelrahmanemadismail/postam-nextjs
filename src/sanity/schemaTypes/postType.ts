@@ -9,19 +9,18 @@ export const postType = defineType({
   fields: [
     defineField({
       name: 'title',
-      type: 'string',
+      type: 'localizedString',
     }),
     defineField({
       name: 'slug',
       type: 'slug',
       options: {
-        source: 'title',
+        source: 'title.en',
       },
     }),
     defineField({
-      name: 'author',
-      type: 'reference',
-      to: {type: 'author'},
+      name: 'excerpt',
+      type: 'localizedText',
     }),
     defineField({
       name: 'mainImage',
@@ -48,18 +47,16 @@ export const postType = defineType({
     }),
     defineField({
       name: 'body',
-      type: 'blockContent',
+      type: 'localizedText',
     }),
   ],
   preview: {
     select: {
-      title: 'title',
-      author: 'author.name',
+      title: 'title.en',
       media: 'mainImage',
     },
     prepare(selection) {
-      const {author} = selection
-      return {...selection, subtitle: author && `by ${author}`}
+      return selection
     },
   },
 })
