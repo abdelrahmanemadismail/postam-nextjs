@@ -120,7 +120,7 @@ export function MobileMenu({ onClose, isOpen }: MobileMenuProps) {
           <div className="space-y-3 pt-2">
             <SectionHeader title={t("nav.explore")} icon={BookOpen} />
             <SectionCard className="bg-gradient-to-br from-card to-card/80 border-border divide-y divide-border space-y-0 overflow-hidden">
-              <MenuItem icon={BookOpen} label={t("nav.howItWorks")} href="#" />
+              <MenuItem icon={BookOpen} label={t("nav.howItWorks")} href="/help-center" />
               <MenuItem icon={Zap} label={t("nav.pricing")} href="#" />
               <MenuItem icon={Newspaper} label={t("nav.blog")} href="/blog" />
             </SectionCard>

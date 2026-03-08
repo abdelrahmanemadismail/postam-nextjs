@@ -1,5 +1,3 @@
-"use client";
-
 import { Header } from "@/components/header";
 import { HeroSection } from "@/components/landing/hero-section";
 import { ProcessSection } from "@/components/landing/process-section";

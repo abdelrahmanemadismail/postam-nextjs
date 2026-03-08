@@ -63,12 +63,14 @@ export function Header() {
             {/* Desktop Navigation */}
             <div className="hidden md:flex items-center gap-1">
               <Button
+                asChild
                 variant="ghost"
                 className="text-sm font-medium text-muted-foreground hover:text-primary gap-2"
-                onClick={() => {}}
               >
-                <BookOpen className="h-4 w-4" />
-                {t("nav.howItWorks")}
+                <Link href="/help-center">
+                  <BookOpen className="h-4 w-4" />
+                  {t("nav.howItWorks")}
+                </Link>
               </Button>
               <Button
                 variant="ghost"

@@ -1,28 +1,52 @@
-"use client";
-
 import Image from "next/image";
 import Link from "next/link";
-import { useTranslations } from "next-intl";
+import { getTranslations } from "next-intl/server";
 import {
-  Clock,
-  CreditCard,
-  ShieldCheck,
-  Headphones,
+  Clock, CreditCard, ShieldCheck, Headphones,
+  Instagram, Twitter, Facebook, Linkedin, Youtube, Github, Twitch, Globe,
+  type LucideIcon,
 } from "lucide-react";
+import { sanityFetch } from "@/sanity/lib/live";
+import { getSiteSettingsQuery } from "@/sanity/lib/queries";
+import { urlFor } from "@/sanity/lib/image";
 
-export function FooterSection() {
-  const t = useTranslations();
+// Positional hrefs matching footer.company.links order in i18n
+const COMPANY_HREFS = ["/about", "#", "/blog", "/contact"];
+// Positional hrefs matching footer.services.links order in i18n
+const SERVICES_HREFS = ["/help-center/buy-for-me", "#", "/help-center/prohibited-items", "#"];
+
+export async function FooterSection() {
+  const t = await getTranslations();
+  const { data: settings } = await sanityFetch({ query: getSiteSettingsQuery });
+
   const companyLinks = t.raw("footer.company.links") as string[];
   const servicesLinks = t.raw("footer.services.links") as string[];
-  const officeLocations = t.raw("footer.offices.locations") as Array<{
-    name: string;
-    addressLines: [string, string];
-    imageAlt: string;
-  }>;
+
+  const socialLinks =
+    settings?.socialLinks && settings.socialLinks.length > 0
+      ? settings.socialLinks
+      : [
+          { platform: "instagram", href: "#" },
+          { platform: "twitter", href: "#" },
+          { platform: "facebook", href: "#" },
+        ];
+
+  const SOCIAL_ICONS: Record<string, LucideIcon> = {
+    instagram: Instagram,
+    twitter: Twitter,
+    facebook: Facebook,
+    linkedin: Linkedin,
+    youtube: Youtube,
+    github: Github,
+    twitch: Twitch,
+  };
+
+  const offices = settings?.offices ?? [];
 
   return (
     <footer className="mt-auto bg-foreground pt-16 text-background">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        {/* Trust badges */}
         <div className="grid gap-8 border-b border-background/20 pb-12 md:grid-cols-4">
           <div className="flex flex-col items-center text-center">
             <Clock className="mb-3 h-8 w-8 text-accent" />
@@ -42,7 +66,9 @@ export function FooterSection() {
           </div>
         </div>
 
+        {/* Main links + offices */}
         <div className="grid gap-12 py-12 md:grid-cols-12">
+          {/* Brand + social */}
           <div className="md:col-span-4">
             <div className="mb-6 flex items-center gap-2">
               <div className="flex h-8 w-8 items-center justify-center rounded bg-accent text-lg font-bold text-accent-foreground">
@@ -54,83 +80,109 @@ export function FooterSection() {
               {t("footer.about.description")}
             </p>
             <div className="flex gap-4">
-              {[
-                { label: "IG" },
-                { label: "TW" },
-                { label: "FB" },
-              ].map((social) => (
-                <a
-                  key={social.label}
-                  className="flex h-10 w-10 items-center justify-center rounded-full bg-background/10 text-xs font-semibold transition hover:bg-accent hover:text-accent-foreground"
-                  href="#"
-                >
-                  {social.label}
-                </a>
-              ))}
+              {socialLinks.map((social) => {
+                const Icon = SOCIAL_ICONS[(social as { platform?: string }).platform ?? ""] ?? Globe;
+                return (
+                  <a
+                    key={(social as { platform?: string }).platform ?? social.href}
+                    href={social.href ?? "#"}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={(social as { platform?: string }).platform ?? "social"}
+                    className="flex h-10 w-10 items-center justify-center rounded-full bg-background/10 transition hover:bg-accent hover:text-accent-foreground"
+                  >
+                    <Icon className="h-5 w-5" />
+                  </a>
+                );
+              })}
             </div>
           </div>
 
+          {/* Company links */}
           <div className="md:col-span-2">
             <h4 className="mb-6 text-sm font-bold">{t("footer.company.title")}</h4>
             <ul className="space-y-4 text-sm text-muted-foreground">
-              {companyLinks.map((link) => (
+              {companyLinks.map((link, i) => (
                 <li key={link}>
-                  <a className="transition hover:text-background" href="#">
+                  <Link className="transition hover:text-background" href={COMPANY_HREFS[i] ?? "#"}>
                     {link}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
           </div>
 
+          {/* Services links */}
           <div className="md:col-span-2">
             <h4 className="mb-6 text-sm font-bold">{t("footer.services.title")}</h4>
             <ul className="space-y-4 text-sm text-muted-foreground">
-              {servicesLinks.map((link) => (
+              {servicesLinks.map((link, i) => (
                 <li key={link}>
-                  <a className="transition hover:text-background" href="#">
+                  <Link className="transition hover:text-background" href={SERVICES_HREFS[i] ?? "#"}>
                     {link}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
           </div>
 
+          {/* Offices */}
           <div className="md:col-span-4">
             <h4 className="mb-6 text-sm font-bold">{t("footer.offices.title")}</h4>
-            <div className="space-y-6">
-              {officeLocations.map((location, index) => (
-                <div key={location.name} className="flex gap-4">
-                  <div className="h-12 w-16 overflow-hidden rounded bg-background/40">
-                    <Image
-                      alt={location.imageAlt}
-                      src={
-                        index === 0
-                          ? "https://lh3.googleusercontent.com/aida-public/AB6AXuCRkCzLLVSd7zW8mWYBsWbIEfz-gauupyLrhbiyXBFTjRK3I5vndCIpOcFoCmwYdTaFeWL3wu755w-wLTxKtcMsSr1KOgm655s76RiuSjXK_8-YJJlYGW-Dhhd_RDBIr2T6aYzzwYvncQhopKq_t9DbjNsE7Xf1QnK0YQapzm5t28SnAOf33FWtsgm9dnN4YY4Cqh0pxGhEtUr49S-Vba5_GNNP_px8OKn6y9UMr5RKSEvUOA-KaC3_XkyKggxvz1-hkYSLz4hannh0"
-                          : "https://lh3.googleusercontent.com/aida-public/AB6AXuB-IWNteufxFOgZCgF_s2wv5t2yKuF7ikRPqZ3l46LUvRvYEkDLvIG479Q9rt8litRGmwMl1oOYi78tsR1RBZalHnTNrgMlfqx-3s5nGr1m7sZ8NJKfrVahK9ecZ8Dlmk_ouInN7AD9HP410qXKb7GqE5bmiz9YwCA_Mm2O56uNyPJ1YTKzsN0_6EOiz5NhIGZfIYgmc9SqVmki2wchpS7UZtbyS-SBUHRFKkJoZ91syJezJMv6HBj1nJi7Xn5e8YE-GN3FHP-cAKJo"
-                      }
-                      width={64}
-                      height={48}
-                      className="h-full w-full object-cover opacity-70"
-                    />
+            {offices.length > 0 ? (
+              <div className="space-y-6">
+                {offices.map((office) => (
+                  <div key={office.name} className="flex gap-4">
+                    {office.image ? (
+                      <div className="h-12 w-16 flex-shrink-0 overflow-hidden rounded bg-background/40">
+                        <Image
+                          alt={office.name ?? ""}
+                          src={urlFor(office.image).width(64).height(48).url()}
+                          width={64}
+                          height={48}
+                          className="h-full w-full object-cover opacity-70"
+                        />
+                      </div>
+                    ) : (
+                      <div className="h-12 w-16 flex-shrink-0 rounded bg-background/20" />
+                    )}
+                    <div>
+                      <h5 className="text-sm font-semibold">{office.name}</h5>
+                      <p className="mt-1 text-xs text-muted-foreground">
+                        {office.addressLine1}
+                        {office.addressLine2 && (
+                          <>
+                            <br />
+                            {office.addressLine2}
+                          </>
+                        )}
+                      </p>
+                    </div>
                   </div>
-                  <div>
-                    <h5 className="text-sm font-semibold">{location.name}</h5>
-                    <p className="mt-1 text-xs text-muted-foreground">
-                      {location.addressLines[0]}
-                      <br />
-                      {location.addressLines[1]}
-                    </p>
-                  </div>
-                </div>
-              ))}
-            </div>
+                ))}
+              </div>
+            ) : (
+              <p className="text-xs text-muted-foreground">—</p>
+            )}
           </div>
         </div>
 
+        {/* Bottom bar */}
         <div className="flex flex-col items-center justify-between gap-4 border-t border-background/20 py-8 text-xs text-muted-foreground md:flex-row">
           <p>{t("footer.legal.copyright")}</p>
-          <div className="flex gap-6">
+          <div className="flex flex-wrap gap-6">
+            <Link className="transition hover:text-background" href="/about">
+              {companyLinks[0] ?? "About Us"}
+            </Link>
+            <Link className="transition hover:text-background" href="/contact">
+              {companyLinks[3] ?? "Contact"}
+            </Link>
+            <Link className="transition hover:text-background" href="/blog">
+              {t("nav.blog")}
+            </Link>
+            <Link className="transition hover:text-background" href="/help-center">
+              {t("footer.legal.helpCenter")}
+            </Link>
             <Link className="transition hover:text-background" href="/privacy-policy">
               {t("footer.legal.privacy")}
             </Link>
