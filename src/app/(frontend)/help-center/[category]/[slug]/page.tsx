@@ -17,6 +17,8 @@ import {
   getSiteSettingsQuery,
 } from "@/sanity/lib/queries";
 
+import { resolveStr } from "@/lib/resolve-str";
+
 interface PageProps {
   params: Promise<{ category: string; slug: string }>;
 }
@@ -63,7 +65,7 @@ export default async function HelpArticlePage({ params }: PageProps) {
               className="flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-primary"
             >
               <ArrowLeft className="h-4 w-4" />
-              {category?.title ?? t("backToCategory")}
+              {resolveStr(category?.title) ?? t("backToCategory")}
             </Link>
 
             {/* Category article list */}
@@ -72,12 +74,7 @@ export default async function HelpArticlePage({ params }: PageProps) {
                 {t("inThisCategory")}
               </p>
               <nav className="flex flex-col gap-1">
-                {categoryArticles?.map(
-                  (a: {
-                    _id: string;
-                    title: string | null;
-                    slug: string | null;
-                  }) => {
+                {categoryArticles?.map((a) => {
                     const isActive = a.slug === slug;
                     return (
                       <Link
@@ -90,11 +87,10 @@ export default async function HelpArticlePage({ params }: PageProps) {
                         }`}
                       >
                         <FileText className="h-4 w-4 flex-shrink-0" />
-                        {a.title}
+                        {resolveStr(a.title)}
                       </Link>
                     );
-                  }
-                )}
+                  })}
               </nav>
             </div>
 
@@ -128,25 +124,25 @@ export default async function HelpArticlePage({ params }: PageProps) {
               href={`/help-center/${categorySlug}`}
               className="hover:text-primary"
             >
-              {category?.title ?? categorySlug}
+              {resolveStr(category?.title) ?? categorySlug}
             </Link>
             <ChevronRight className="h-3 w-3" />
-            <span className="text-foreground">{article.title}</span>
+            <span className="text-foreground">{resolveStr(article.title)}</span>
           </nav>
 
           {/* Title & excerpt */}
           <h1 className="mb-6 text-3xl font-extrabold leading-tight tracking-tight text-foreground md:text-4xl">
-            {article.title}
+            {resolveStr(article.title)}
           </h1>
-          {article.excerpt && (
+          {resolveStr(article.excerpt) && (
             <p className="mb-10 text-lg leading-relaxed text-muted-foreground">
-              {article.excerpt}
+              {resolveStr(article.excerpt)}
             </p>
           )}
 
           {/* Content */}
           {article.content ? (
-            <MarkdownContent content={article.content} />
+            <MarkdownContent content={resolveStr(article.content) ?? ""} />
           ) : (
             <p className="text-muted-foreground">{t("noContent")}</p>
           )}
@@ -187,29 +183,22 @@ export default async function HelpArticlePage({ params }: PageProps) {
                 {t("relatedArticles")}
               </h3>
               <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-                {article.relatedArticles.map(
-                  (rel: {
-                    _id: string;
-                    title: string | null;
-                    slug: string | null;
-                    excerpt: string | null;
-                  }) => (
+                {article.relatedArticles.map((rel) => (
                     <Link
                       key={rel._id}
                       href={`/help-center/${article.category?.slug ?? categorySlug}/${rel.slug}`}
                       className="group rounded-xl border border-border p-4 transition-all hover:border-primary/50"
                     >
                       <h4 className="mb-1 font-semibold text-foreground transition-colors group-hover:text-primary">
-                        {rel.title}
+                        {resolveStr(rel.title)}
                       </h4>
-                      {rel.excerpt && (
+                      {resolveStr(rel.excerpt) && (
                         <p className="text-xs text-muted-foreground line-clamp-2">
-                          {rel.excerpt}
+                          {resolveStr(rel.excerpt)}
                         </p>
                       )}
                     </Link>
-                  )
-                )}
+                  ))}
               </div>
             </div>
           )}

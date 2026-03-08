@@ -13,6 +13,234 @@
  */
 
 // Source: schema.json
+export type JobPosting = {
+  _id: string;
+  _type: "jobPosting";
+  _createdAt: string;
+  _updatedAt: string;
+  _rev: string;
+  title: LocalizedString;
+  slug: Slug;
+  department: "Engineering" | "Operations" | "Customer Support" | "Marketing" | "Finance" | "Design";
+  location: LocalizedString;
+  type: "full-time" | "part-time" | "contract" | "remote";
+  summary?: {
+    en?: string;
+    ar?: string;
+    tr?: string;
+  };
+  description?: {
+    en?: string;
+    ar?: string;
+    tr?: string;
+  };
+  requirements?: {
+    en?: string;
+    ar?: string;
+    tr?: string;
+  };
+  applyUrl?: string;
+  isOpen?: boolean;
+  publishedAt?: string;
+  order?: number;
+};
+
+export type LocalizedString = {
+  _type: "localizedString";
+  en: string;
+  ar?: string;
+  tr?: string;
+};
+
+export type Slug = {
+  _type: "slug";
+  current: string;
+  source?: string;
+};
+
+export type Testimonial = {
+  _id: string;
+  _type: "testimonial";
+  _createdAt: string;
+  _updatedAt: string;
+  _rev: string;
+  name: string;
+  city?: string;
+  quote?: {
+    en?: string;
+    ar?: string;
+    tr?: string;
+  };
+  image?: {
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    media?: unknown;
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    _type: "image";
+  };
+  rating: 1 | 2 | 3 | 4 | 5;
+  featured?: boolean;
+  order?: number;
+};
+
+export type SanityImageCrop = {
+  _type: "sanity.imageCrop";
+  top: number;
+  bottom: number;
+  left: number;
+  right: number;
+};
+
+export type SanityImageHotspot = {
+  _type: "sanity.imageHotspot";
+  x: number;
+  y: number;
+  height: number;
+  width: number;
+};
+
+export type SiteSettings = {
+  _id: string;
+  _type: "siteSettings";
+  _createdAt: string;
+  _updatedAt: string;
+  _rev: string;
+  phone?: string;
+  whatsapp?: string;
+  supportEmail?: string;
+  offices?: Array<{
+    name?: string;
+    addressLine1?: string;
+    addressLine2?: string;
+    image?: {
+      asset?: {
+        _ref: string;
+        _type: "reference";
+        _weak?: boolean;
+        [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+      };
+      media?: unknown;
+      hotspot?: SanityImageHotspot;
+      crop?: SanityImageCrop;
+      _type: "image";
+    };
+    _type: "office";
+    _key: string;
+  }>;
+  socialLinks?: Array<{
+    platform?: "instagram" | "twitter" | "facebook" | "linkedin" | "youtube" | "github" | "twitch" | "tiktok" | "telegram" | "discord" | "snapchat";
+    href?: string;
+    _type: "socialLink";
+    _key: string;
+  }>;
+};
+
+export type HelpFaq = {
+  _id: string;
+  _type: "helpFaq";
+  _createdAt: string;
+  _updatedAt: string;
+  _rev: string;
+  question?: LocalizedString;
+  answer?: {
+    en?: string;
+    ar?: string;
+    tr?: string;
+  };
+  category?: {
+    _ref: string;
+    _type: "reference";
+    _weak?: boolean;
+    [internalGroqTypeReferenceTo]?: "helpCategory";
+  };
+  featured?: boolean;
+  order?: number;
+};
+
+export type HelpArticle = {
+  _id: string;
+  _type: "helpArticle";
+  _createdAt: string;
+  _updatedAt: string;
+  _rev: string;
+  title?: LocalizedString;
+  slug: Slug;
+  category: {
+    _ref: string;
+    _type: "reference";
+    _weak?: boolean;
+    [internalGroqTypeReferenceTo]?: "helpCategory";
+  };
+  excerpt?: {
+    en?: string;
+    ar?: string;
+    tr?: string;
+  };
+  content?: {
+    en?: string;
+    ar?: string;
+    tr?: string;
+  };
+  relatedArticles?: Array<{
+    _ref: string;
+    _type: "reference";
+    _weak?: boolean;
+    _key: string;
+    [internalGroqTypeReferenceTo]?: "helpArticle";
+  }>;
+  featured?: boolean;
+  publishedAt?: string;
+  helpfulCount?: number;
+};
+
+export type HelpCategory = {
+  _id: string;
+  _type: "helpCategory";
+  _createdAt: string;
+  _updatedAt: string;
+  _rev: string;
+  title?: LocalizedString;
+  slug: Slug;
+  description?: {
+    en?: string;
+    ar?: string;
+    tr?: string;
+  };
+  icon?: "rocket" | "truck" | "cart" | "payments" | "block" | "headset" | "info" | "shield";
+  order?: number;
+};
+
+export type LegalDocVersion = {
+  _id: string;
+  _type: "legalDocVersion";
+  _createdAt: string;
+  _updatedAt: string;
+  _rev: string;
+  docType: "privacy-policy" | "terms-of-service";
+  version: string;
+  effectiveDate: string;
+  isActive?: boolean;
+  title?: LocalizedString;
+  content?: {
+    en?: string;
+    ar?: string;
+    tr?: string;
+  };
+  changelog?: LocalizedText;
+};
+
+export type LocalizedText = {
+  _type: "localizedText";
+  en?: string;
+  ar?: string;
+  tr?: string;
+};
+
 export type Post = {
   _id: string;
   _type: "post";
@@ -44,42 +272,6 @@ export type Post = {
   }>;
   publishedAt?: string;
   body?: LocalizedText;
-};
-
-export type LocalizedText = {
-  _type: "localizedText";
-  en?: string;
-  ar?: string;
-  tr?: string;
-};
-
-export type SanityImageCrop = {
-  _type: "sanity.imageCrop";
-  top: number;
-  bottom: number;
-  left: number;
-  right: number;
-};
-
-export type SanityImageHotspot = {
-  _type: "sanity.imageHotspot";
-  x: number;
-  y: number;
-  height: number;
-  width: number;
-};
-
-export type Slug = {
-  _type: "slug";
-  current: string;
-  source?: string;
-};
-
-export type LocalizedString = {
-  _type: "localizedString";
-  en: string;
-  ar?: string;
-  tr?: string;
 };
 
 export type Category = {
@@ -228,7 +420,7 @@ export type Geopoint = {
   alt?: number;
 };
 
-export type AllSanitySchemaTypes = Post | LocalizedText | SanityImageCrop | SanityImageHotspot | Slug | LocalizedString | Category | LocalizedBlockContent | BlockContent | SanityImagePaletteSwatch | SanityImagePalette | SanityImageDimensions | SanityImageMetadata | SanityFileAsset | SanityAssetSourceData | SanityImageAsset | Geopoint;
+export type AllSanitySchemaTypes = JobPosting | LocalizedString | Slug | Testimonial | SanityImageCrop | SanityImageHotspot | SiteSettings | HelpFaq | HelpArticle | HelpCategory | LegalDocVersion | LocalizedText | Post | Category | LocalizedBlockContent | BlockContent | SanityImagePaletteSwatch | SanityImagePalette | SanityImageDimensions | SanityImageMetadata | SanityFileAsset | SanityAssetSourceData | SanityImageAsset | Geopoint;
 export declare const internalGroqTypeReferenceTo: unique symbol;
 // Source: ./src/sanity/lib/queries.ts
 // Variable: getAllPostsQuery
@@ -345,6 +537,356 @@ export type GetBlogCategoriesQueryResult = Array<{
   }> | string | null;
   slug: string | null;
 }>;
+// Variable: getActiveLegalDocQuery
+// Query: *[_type == "legalDocVersion" && docType == $docType && isActive == true] | order(effectiveDate desc)[0]{  _id,  docType,  version,  effectiveDate,  "title": coalesce(title[$locale], title[$defaultLocale], title.en),  "content": coalesce(content[$locale], content[$defaultLocale], content.en),  "changelog": coalesce(changelog[$locale], changelog[$defaultLocale], changelog.en),}
+export type GetActiveLegalDocQueryResult = {
+  _id: string;
+  docType: "privacy-policy" | "terms-of-service";
+  version: string;
+  effectiveDate: string;
+  title: Array<{
+    _type: "localizedString";
+    en: string;
+    ar?: string;
+    tr?: string;
+  }> | string | null;
+  content: Array<{
+    en?: string;
+    ar?: string;
+    tr?: string;
+  }> | string | null;
+  changelog: Array<{
+    _type: "localizedText";
+    en?: string;
+    ar?: string;
+    tr?: string;
+  }> | string | null;
+} | null;
+// Variable: getLegalDocVersionsQuery
+// Query: *[_type == "legalDocVersion" && docType == $docType] | order(effectiveDate desc){  _id,  version,  effectiveDate,  isActive,  "title": coalesce(title[$locale], title[$defaultLocale], title.en),  "changelog": coalesce(changelog[$locale], changelog[$defaultLocale], changelog.en),}
+export type GetLegalDocVersionsQueryResult = Array<{
+  _id: string;
+  version: string;
+  effectiveDate: string;
+  isActive: boolean | null;
+  title: Array<{
+    _type: "localizedString";
+    en: string;
+    ar?: string;
+    tr?: string;
+  }> | string | null;
+  changelog: Array<{
+    _type: "localizedText";
+    en?: string;
+    ar?: string;
+    tr?: string;
+  }> | string | null;
+}>;
+// Variable: getHelpCategoriesQuery
+// Query: *[_type == "helpCategory"] | order(order asc){  _id,  "title": coalesce(title[$locale], title[$defaultLocale], title.en),  "slug": slug.current,  "description": coalesce(description[$locale], description[$defaultLocale], description.en),  icon,  order,}
+export type GetHelpCategoriesQueryResult = Array<{
+  _id: string;
+  title: Array<{
+    _type: "localizedString";
+    en: string;
+    ar?: string;
+    tr?: string;
+  }> | string | null;
+  slug: string;
+  description: Array<{
+    en?: string;
+    ar?: string;
+    tr?: string;
+  }> | string | null;
+  icon: "block" | "cart" | "headset" | "info" | "payments" | "rocket" | "shield" | "truck" | null;
+  order: number | null;
+}>;
+// Variable: getHelpCategoryBySlugQuery
+// Query: *[_type == "helpCategory" && slug.current == $slug][0]{  _id,  "title": coalesce(title[$locale], title[$defaultLocale], title.en),  "slug": slug.current,  "description": coalesce(description[$locale], description[$defaultLocale], description.en),  icon,}
+export type GetHelpCategoryBySlugQueryResult = {
+  _id: string;
+  title: Array<{
+    _type: "localizedString";
+    en: string;
+    ar?: string;
+    tr?: string;
+  }> | string | null;
+  slug: string;
+  description: Array<{
+    en?: string;
+    ar?: string;
+    tr?: string;
+  }> | string | null;
+  icon: "block" | "cart" | "headset" | "info" | "payments" | "rocket" | "shield" | "truck" | null;
+} | null;
+// Variable: getHelpArticlesByCategoryQuery
+// Query: *[_type == "helpArticle" && category->slug.current == $categorySlug] | order(publishedAt desc){  _id,  "title": coalesce(title[$locale], title[$defaultLocale], title.en),  "slug": slug.current,  "excerpt": coalesce(excerpt[$locale], excerpt[$defaultLocale], excerpt.en),  featured,  publishedAt,}
+export type GetHelpArticlesByCategoryQueryResult = Array<{
+  _id: string;
+  title: Array<{
+    _type: "localizedString";
+    en: string;
+    ar?: string;
+    tr?: string;
+  }> | string | null;
+  slug: string;
+  excerpt: Array<{
+    en?: string;
+    ar?: string;
+    tr?: string;
+  }> | string | null;
+  featured: boolean | null;
+  publishedAt: string | null;
+}>;
+// Variable: getHelpArticleBySlugQuery
+// Query: *[_type == "helpArticle" && slug.current == $slug][0]{  _id,  "title": coalesce(title[$locale], title[$defaultLocale], title.en),  "slug": slug.current,  "excerpt": coalesce(excerpt[$locale], excerpt[$defaultLocale], excerpt.en),  "content": coalesce(content[$locale], content[$defaultLocale], content.en),  helpfulCount,  publishedAt,  category->{    _id,    "title": coalesce(title[$locale], title[$defaultLocale], title.en),    "slug": slug.current,  },  "relatedArticles": relatedArticles[]->{    _id,    "title": coalesce(title[$locale], title[$defaultLocale], title.en),    "slug": slug.current,    "excerpt": coalesce(excerpt[$locale], excerpt[$defaultLocale], excerpt.en),  },}
+export type GetHelpArticleBySlugQueryResult = {
+  _id: string;
+  title: Array<{
+    _type: "localizedString";
+    en: string;
+    ar?: string;
+    tr?: string;
+  }> | string | null;
+  slug: string;
+  excerpt: Array<{
+    en?: string;
+    ar?: string;
+    tr?: string;
+  }> | string | null;
+  content: Array<{
+    en?: string;
+    ar?: string;
+    tr?: string;
+  }> | string | null;
+  helpfulCount: number | null;
+  publishedAt: string | null;
+  category: {
+    _id: string;
+    title: Array<{
+      _type: "localizedString";
+      en: string;
+      ar?: string;
+      tr?: string;
+    }> | string | null;
+    slug: string;
+  };
+  relatedArticles: Array<{
+    _id: string;
+    title: Array<{
+      _type: "localizedString";
+      en: string;
+      ar?: string;
+      tr?: string;
+    }> | string | null;
+    slug: string;
+    excerpt: Array<{
+      en?: string;
+      ar?: string;
+      tr?: string;
+    }> | string | null;
+  }> | null;
+} | null;
+// Variable: getFeaturedFaqsQuery
+// Query: *[_type == "helpFaq" && featured == true] | order(order asc){  _id,  "question": coalesce(question[$locale], question[$defaultLocale], question.en),  "answer": coalesce(answer[$locale], answer[$defaultLocale], answer.en),}
+export type GetFeaturedFaqsQueryResult = Array<{
+  _id: string;
+  question: Array<{
+    _type: "localizedString";
+    en: string;
+    ar?: string;
+    tr?: string;
+  }> | string | null;
+  answer: Array<{
+    en?: string;
+    ar?: string;
+    tr?: string;
+  }> | string | null;
+}>;
+// Variable: getHelpArticlesInCategoryQuery
+// Query: *[_type == "helpArticle" && category._ref == $categoryId] | order(publishedAt desc){  _id,  "title": coalesce(title[$locale], title[$defaultLocale], title.en),  "slug": slug.current,  featured,}
+export type GetHelpArticlesInCategoryQueryResult = Array<{
+  _id: string;
+  title: Array<{
+    _type: "localizedString";
+    en: string;
+    ar?: string;
+    tr?: string;
+  }> | string | null;
+  slug: string;
+  featured: boolean | null;
+}>;
+// Variable: getAllFaqsQuery
+// Query: *[_type == "helpFaq"] | order(order asc){  _id,  "question": coalesce(question[$locale], question[$defaultLocale], question.en),  "answer": coalesce(answer[$locale], answer[$defaultLocale], answer.en),  featured,  order,  category->{    _id,    "title": coalesce(title[$locale], title[$defaultLocale], title.en),    "slug": slug.current,  },}
+export type GetAllFaqsQueryResult = Array<{
+  _id: string;
+  question: Array<{
+    _type: "localizedString";
+    en: string;
+    ar?: string;
+    tr?: string;
+  }> | string | null;
+  answer: Array<{
+    en?: string;
+    ar?: string;
+    tr?: string;
+  }> | string | null;
+  featured: boolean | null;
+  order: number | null;
+  category: {
+    _id: string;
+    title: Array<{
+      _type: "localizedString";
+      en: string;
+      ar?: string;
+      tr?: string;
+    }> | string | null;
+    slug: string;
+  } | null;
+}>;
+// Variable: getSiteSettingsQuery
+// Query: *[_type == "siteSettings" && _id == "siteSettings"][0]{  phone,  whatsapp,  supportEmail,  offices[]{    name,    addressLine1,    addressLine2,    image,  },  socialLinks[]{    platform,    href,  },}
+export type GetSiteSettingsQueryResult = {
+  phone: string | null;
+  whatsapp: string | null;
+  supportEmail: string | null;
+  offices: Array<{
+    name: string | null;
+    addressLine1: string | null;
+    addressLine2: string | null;
+    image: {
+      asset?: {
+        _ref: string;
+        _type: "reference";
+        _weak?: boolean;
+        [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+      };
+      media?: unknown;
+      hotspot?: SanityImageHotspot;
+      crop?: SanityImageCrop;
+      _type: "image";
+    } | null;
+  }> | null;
+  socialLinks: Array<{
+    platform: "discord" | "facebook" | "github" | "instagram" | "linkedin" | "snapchat" | "telegram" | "tiktok" | "twitch" | "twitter" | "youtube" | null;
+    href: string | null;
+  }> | null;
+} | null;
+// Variable: getFeaturedTestimonialsQuery
+// Query: *[_type == "testimonial" && featured == true] | order(order asc){  _id,  name,  city,  "quote": coalesce(quote[$locale], quote[$defaultLocale], quote.en),  image,  rating,}
+export type GetFeaturedTestimonialsQueryResult = Array<{
+  _id: string;
+  name: string;
+  city: string | null;
+  quote: Array<{
+    en?: string;
+    ar?: string;
+    tr?: string;
+  }> | string | null;
+  image: {
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    media?: unknown;
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    _type: "image";
+  } | null;
+  rating: 1 | 2 | 3 | 4 | 5;
+}>;
+// Variable: getAllTestimonialsQuery
+// Query: *[_type == "testimonial"] | order(order asc){  _id,  name,  city,  "quote": coalesce(quote[$locale], quote[$defaultLocale], quote.en),  image,  rating,  featured,  order,}
+export type GetAllTestimonialsQueryResult = Array<{
+  _id: string;
+  name: string;
+  city: string | null;
+  quote: Array<{
+    en?: string;
+    ar?: string;
+    tr?: string;
+  }> | string | null;
+  image: {
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    media?: unknown;
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    _type: "image";
+  } | null;
+  rating: 1 | 2 | 3 | 4 | 5;
+  featured: boolean | null;
+  order: number | null;
+}>;
+// Variable: getOpenJobPostingsQuery
+// Query: *[_type == "jobPosting" && isOpen == true] | order(order asc, publishedAt desc){  _id,  "title": coalesce(title[$locale], title[$defaultLocale], title.en),  "slug": slug.current,  department,  "location": coalesce(location[$locale], location[$defaultLocale], location.en),  type,  "summary": coalesce(summary[$locale], summary[$defaultLocale], summary.en),  publishedAt,}
+export type GetOpenJobPostingsQueryResult = Array<{
+  _id: string;
+  title: Array<{
+    _type: "localizedString";
+    en: string;
+    ar?: string;
+    tr?: string;
+  }>;
+  slug: string;
+  department: "Customer Support" | "Design" | "Engineering" | "Finance" | "Marketing" | "Operations";
+  location: Array<{
+    _type: "localizedString";
+    en: string;
+    ar?: string;
+    tr?: string;
+  }>;
+  type: "contract" | "full-time" | "part-time" | "remote";
+  summary: Array<{
+    en?: string;
+    ar?: string;
+    tr?: string;
+  }> | string | null;
+  publishedAt: string | null;
+}>;
+// Variable: getJobPostingBySlugQuery
+// Query: *[_type == "jobPosting" && slug.current == $slug][0]{  _id,  "title": coalesce(title[$locale], title[$defaultLocale], title.en),  "slug": slug.current,  department,  "location": coalesce(location[$locale], location[$defaultLocale], location.en),  type,  "summary": coalesce(summary[$locale], summary[$defaultLocale], summary.en),  "description": coalesce(description[$locale], description[$defaultLocale], description.en),  "requirements": coalesce(requirements[$locale], requirements[$defaultLocale], requirements.en),  applyUrl,  publishedAt,}
+export type GetJobPostingBySlugQueryResult = {
+  _id: string;
+  title: Array<{
+    _type: "localizedString";
+    en: string;
+    ar?: string;
+    tr?: string;
+  }>;
+  slug: string;
+  department: "Customer Support" | "Design" | "Engineering" | "Finance" | "Marketing" | "Operations";
+  location: Array<{
+    _type: "localizedString";
+    en: string;
+    ar?: string;
+    tr?: string;
+  }>;
+  type: "contract" | "full-time" | "part-time" | "remote";
+  summary: Array<{
+    en?: string;
+    ar?: string;
+    tr?: string;
+  }> | string | null;
+  description: Array<{
+    en?: string;
+    ar?: string;
+    tr?: string;
+  }> | string | null;
+  requirements: Array<{
+    en?: string;
+    ar?: string;
+    tr?: string;
+  }> | string | null;
+  applyUrl: string | null;
+  publishedAt: string | null;
+} | null;
 
 // Query TypeMap
 import "@sanity/client";
@@ -353,5 +895,19 @@ declare module "@sanity/client" {
     "*[_type == \"post\"\n  && (\n    !defined($category) || $category == \"\" ||\n    $category in categories[]->slug.current\n  )\n  && (\n    !defined($searchPattern) || $searchPattern == \"\" ||\n    lower(coalesce(title[$locale], title[$defaultLocale], title.en, \"\")) match lower($searchPattern) ||\n    lower(coalesce(excerpt[$locale], excerpt[$defaultLocale], excerpt.en, \"\")) match lower($searchPattern) ||\n    lower(coalesce(body[$locale], body[$defaultLocale], body.en, \"\")) match lower($searchPattern) ||\n    count(categories[]->[lower(coalesce(title[$locale], title[$defaultLocale], title.en, \"\")) match lower($searchPattern)]) > 0\n  )\n]{\n  _id,\n  \"title\": coalesce(title[$locale], title[$defaultLocale], title.en),\n  \"slug\": slug.current,\n  \"excerpt\": coalesce(excerpt[$locale], excerpt[$defaultLocale], excerpt.en),\n  mainImage,\n  categories[]->{\n    _id,\n    \"title\": coalesce(title[$locale], title[$defaultLocale], title.en),\n    \"slug\": slug.current,\n  },\n  publishedAt,\n  \"bodyText\": coalesce(body[$locale], body[$defaultLocale], body.en, \"\"),\n} | order(publishedAt desc)": GetAllPostsQueryResult;
     "\n*[_type == \"post\" && slug.current == $slug][0]{\n  _id,\n  \"title\": coalesce(title[$locale], title[$defaultLocale], title.en),\n  \"slug\": slug.current,\n  \"excerpt\": coalesce(excerpt[$locale], excerpt[$defaultLocale], excerpt.en),\n  mainImage,\n  categories[]->{\n    _id,\n    \"title\": coalesce(title[$locale], title[$defaultLocale], title.en),\n    \"slug\": slug.current,\n  },\n  publishedAt,\n  \"body\": coalesce(body[$locale], body[$defaultLocale], body.en, \"\"),\n  \"bodyText\": coalesce(body[$locale], body[$defaultLocale], body.en, \"\"),\n}": GetPostBySlugQueryResult;
     "*[_type == \"category\"] | order(coalesce(title[$locale], title[$defaultLocale], title.en) asc){\n  _id,\n  \"title\": coalesce(title[$locale], title[$defaultLocale], title.en),\n  \"slug\": slug.current,\n}": GetBlogCategoriesQueryResult;
+    "\n*[_type == \"legalDocVersion\" && docType == $docType && isActive == true] | order(effectiveDate desc)[0]{\n  _id,\n  docType,\n  version,\n  effectiveDate,\n  \"title\": coalesce(title[$locale], title[$defaultLocale], title.en),\n  \"content\": coalesce(content[$locale], content[$defaultLocale], content.en),\n  \"changelog\": coalesce(changelog[$locale], changelog[$defaultLocale], changelog.en),\n}": GetActiveLegalDocQueryResult;
+    "\n*[_type == \"legalDocVersion\" && docType == $docType] | order(effectiveDate desc){\n  _id,\n  version,\n  effectiveDate,\n  isActive,\n  \"title\": coalesce(title[$locale], title[$defaultLocale], title.en),\n  \"changelog\": coalesce(changelog[$locale], changelog[$defaultLocale], changelog.en),\n}": GetLegalDocVersionsQueryResult;
+    "\n*[_type == \"helpCategory\"] | order(order asc){\n  _id,\n  \"title\": coalesce(title[$locale], title[$defaultLocale], title.en),\n  \"slug\": slug.current,\n  \"description\": coalesce(description[$locale], description[$defaultLocale], description.en),\n  icon,\n  order,\n}": GetHelpCategoriesQueryResult;
+    "\n*[_type == \"helpCategory\" && slug.current == $slug][0]{\n  _id,\n  \"title\": coalesce(title[$locale], title[$defaultLocale], title.en),\n  \"slug\": slug.current,\n  \"description\": coalesce(description[$locale], description[$defaultLocale], description.en),\n  icon,\n}": GetHelpCategoryBySlugQueryResult;
+    "\n*[_type == \"helpArticle\" && category->slug.current == $categorySlug] | order(publishedAt desc){\n  _id,\n  \"title\": coalesce(title[$locale], title[$defaultLocale], title.en),\n  \"slug\": slug.current,\n  \"excerpt\": coalesce(excerpt[$locale], excerpt[$defaultLocale], excerpt.en),\n  featured,\n  publishedAt,\n}": GetHelpArticlesByCategoryQueryResult;
+    "\n*[_type == \"helpArticle\" && slug.current == $slug][0]{\n  _id,\n  \"title\": coalesce(title[$locale], title[$defaultLocale], title.en),\n  \"slug\": slug.current,\n  \"excerpt\": coalesce(excerpt[$locale], excerpt[$defaultLocale], excerpt.en),\n  \"content\": coalesce(content[$locale], content[$defaultLocale], content.en),\n  helpfulCount,\n  publishedAt,\n  category->{\n    _id,\n    \"title\": coalesce(title[$locale], title[$defaultLocale], title.en),\n    \"slug\": slug.current,\n  },\n  \"relatedArticles\": relatedArticles[]->{\n    _id,\n    \"title\": coalesce(title[$locale], title[$defaultLocale], title.en),\n    \"slug\": slug.current,\n    \"excerpt\": coalesce(excerpt[$locale], excerpt[$defaultLocale], excerpt.en),\n  },\n}": GetHelpArticleBySlugQueryResult;
+    "\n*[_type == \"helpFaq\" && featured == true] | order(order asc){\n  _id,\n  \"question\": coalesce(question[$locale], question[$defaultLocale], question.en),\n  \"answer\": coalesce(answer[$locale], answer[$defaultLocale], answer.en),\n}": GetFeaturedFaqsQueryResult;
+    "\n*[_type == \"helpArticle\" && category._ref == $categoryId] | order(publishedAt desc){\n  _id,\n  \"title\": coalesce(title[$locale], title[$defaultLocale], title.en),\n  \"slug\": slug.current,\n  featured,\n}": GetHelpArticlesInCategoryQueryResult;
+    "\n*[_type == \"helpFaq\"] | order(order asc){\n  _id,\n  \"question\": coalesce(question[$locale], question[$defaultLocale], question.en),\n  \"answer\": coalesce(answer[$locale], answer[$defaultLocale], answer.en),\n  featured,\n  order,\n  category->{\n    _id,\n    \"title\": coalesce(title[$locale], title[$defaultLocale], title.en),\n    \"slug\": slug.current,\n  },\n}": GetAllFaqsQueryResult;
+    "\n*[_type == \"siteSettings\" && _id == \"siteSettings\"][0]{\n  phone,\n  whatsapp,\n  supportEmail,\n  offices[]{\n    name,\n    addressLine1,\n    addressLine2,\n    image,\n  },\n  socialLinks[]{\n    platform,\n    href,\n  },\n}": GetSiteSettingsQueryResult;
+    "\n*[_type == \"testimonial\" && featured == true] | order(order asc){\n  _id,\n  name,\n  city,\n  \"quote\": coalesce(quote[$locale], quote[$defaultLocale], quote.en),\n  image,\n  rating,\n}": GetFeaturedTestimonialsQueryResult;
+    "\n*[_type == \"testimonial\"] | order(order asc){\n  _id,\n  name,\n  city,\n  \"quote\": coalesce(quote[$locale], quote[$defaultLocale], quote.en),\n  image,\n  rating,\n  featured,\n  order,\n}": GetAllTestimonialsQueryResult;
+    "\n*[_type == \"jobPosting\" && isOpen == true] | order(order asc, publishedAt desc){\n  _id,\n  \"title\": coalesce(title[$locale], title[$defaultLocale], title.en),\n  \"slug\": slug.current,\n  department,\n  \"location\": coalesce(location[$locale], location[$defaultLocale], location.en),\n  type,\n  \"summary\": coalesce(summary[$locale], summary[$defaultLocale], summary.en),\n  publishedAt,\n}": GetOpenJobPostingsQueryResult;
+    "\n*[_type == \"jobPosting\" && slug.current == $slug][0]{\n  _id,\n  \"title\": coalesce(title[$locale], title[$defaultLocale], title.en),\n  \"slug\": slug.current,\n  department,\n  \"location\": coalesce(location[$locale], location[$defaultLocale], location.en),\n  type,\n  \"summary\": coalesce(summary[$locale], summary[$defaultLocale], summary.en),\n  \"description\": coalesce(description[$locale], description[$defaultLocale], description.en),\n  \"requirements\": coalesce(requirements[$locale], requirements[$defaultLocale], requirements.en),\n  applyUrl,\n  publishedAt,\n}": GetJobPostingBySlugQueryResult;
   }
 }

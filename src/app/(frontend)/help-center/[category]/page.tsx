@@ -7,6 +7,7 @@ import { Header } from "@/components/header";
 import { FooterSection } from "@/components/landing/footer-section";
 import { CategoryIcon } from "@/components/help-center/category-icon";
 import { defaultLocale } from "@/lib/i18n";
+import { resolveStr } from "@/lib/resolve-str";
 import { sanityFetch } from "@/sanity/lib/live";
 import {
   getHelpCategoryBySlugQuery,
@@ -46,7 +47,7 @@ export default async function HelpCategoryPage({ params }: PageProps) {
             {t("backToHelp")}
           </Link>
           <ChevronRight className="h-4 w-4" />
-          <span className="text-foreground font-medium">{category.title}</span>
+          <span className="text-foreground font-medium">{resolveStr(category.title)}</span>
         </nav>
 
         {/* Category header */}
@@ -56,11 +57,11 @@ export default async function HelpCategoryPage({ params }: PageProps) {
           </div>
           <div>
             <h1 className="text-3xl font-extrabold text-foreground">
-              {category.title}
+              {resolveStr(category.title)}
             </h1>
-            {category.description && (
+            {resolveStr(category.description) && (
               <p className="mt-2 text-muted-foreground">
-                {category.description}
+                {resolveStr(category.description)}
               </p>
             )}
           </div>
@@ -71,14 +72,7 @@ export default async function HelpCategoryPage({ params }: PageProps) {
           <p className="text-muted-foreground">{t("noArticles")}</p>
         ) : (
           <div className="space-y-3">
-            {articles.map(
-              (article: {
-                _id: string;
-                title: string | null;
-                slug: string | null;
-                excerpt: string | null;
-                featured: boolean | null;
-              }) => (
+            {articles.map((article) => (
                 <Link
                   key={article._id}
                   href={`/help-center/${categorySlug}/${article.slug}`}
@@ -89,18 +83,17 @@ export default async function HelpCategoryPage({ params }: PageProps) {
                   </div>
                   <div className="flex-1">
                     <h3 className="font-semibold text-foreground group-hover:text-primary">
-                      {article.title}
+                      {resolveStr(article.title)}
                     </h3>
-                    {article.excerpt && (
+                    {resolveStr(article.excerpt) && (
                       <p className="mt-1 text-sm text-muted-foreground line-clamp-2">
-                        {article.excerpt}
+                        {resolveStr(article.excerpt)}
                       </p>
                     )}
                   </div>
                   <ChevronRight className="mt-1 h-4 w-4 flex-shrink-0 text-muted-foreground opacity-0 transition-all group-hover:opacity-100" />
                 </Link>
-              )
-            )}
+              ))}
           </div>
         )}
       </main>

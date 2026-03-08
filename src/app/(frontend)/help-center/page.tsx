@@ -8,6 +8,7 @@ import { CategoryIcon } from "@/components/help-center/category-icon";
 import { FaqAccordion } from "@/components/help-center/faq-accordion";
 import { HelpSearchBox } from "@/components/help-center/help-search-box";
 import { defaultLocale } from "@/lib/i18n";
+import { resolveStr } from "@/lib/resolve-str";
 import { sanityFetch } from "@/sanity/lib/live";
 import {
   getHelpCategoriesQuery,
@@ -74,14 +75,7 @@ export default async function HelpCenterPage() {
             <p className="text-muted-foreground">{t("noCategories")}</p>
           ) : (
             <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-              {categories.map(
-                (cat: {
-                  _id: string;
-                  title: string | null;
-                  slug: string | null;
-                  description: string | null;
-                  icon: string | null;
-                }) => (
+              {categories.map((cat) => (
                   <Link
                     key={cat._id}
                     href={`/help-center/${cat.slug}`}
@@ -91,14 +85,13 @@ export default async function HelpCenterPage() {
                       <CategoryIcon icon={cat.icon} />
                     </div>
                     <h3 className="mb-2 text-lg font-bold text-card-foreground">
-                      {cat.title}
+                      {resolveStr(cat.title)}
                     </h3>
                     <p className="text-sm leading-relaxed text-muted-foreground">
-                      {cat.description}
+                      {resolveStr(cat.description)}
                     </p>
                   </Link>
-                )
-              )}
+                ))}
             </div>
           )}
         </section>
@@ -120,13 +113,11 @@ export default async function HelpCenterPage() {
               </div>
 
               <FaqAccordion
-                items={faqs.map(
-                  (f: {
-                    _id: string;
-                    question: string | null;
-                    answer: string | null;
-                  }) => f
-                )}
+                items={faqs.map((f) => ({
+                  _id: f._id,
+                  question: resolveStr(f.question),
+                  answer: resolveStr(f.answer),
+                }))}
               />
             </div>
           </section>

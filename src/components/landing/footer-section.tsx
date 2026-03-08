@@ -11,7 +11,7 @@ import { getSiteSettingsQuery } from "@/sanity/lib/queries";
 import { urlFor } from "@/sanity/lib/image";
 
 // Positional hrefs matching footer.company.links order in i18n
-const COMPANY_HREFS = ["/about", "#", "/blog", "/contact"];
+const COMPANY_HREFS = ["/about", "/ca", "/blog", "/contact"];
 // Positional hrefs matching footer.services.links order in i18n
 const SERVICES_HREFS = ["/help-center/buy-for-me", "#", "/help-center/prohibited-items", "#"];
 
@@ -22,7 +22,9 @@ export async function FooterSection() {
   const companyLinks = t.raw("footer.company.links") as string[];
   const servicesLinks = t.raw("footer.services.links") as string[];
 
-  const socialLinks =
+  type SocialLinkItem = { platform: string | null; href: string | null };
+
+  const socialLinks: SocialLinkItem[] =
     settings?.socialLinks && settings.socialLinks.length > 0
       ? settings.socialLinks
       : [
@@ -81,14 +83,14 @@ export async function FooterSection() {
             </p>
             <div className="flex gap-4">
               {socialLinks.map((social) => {
-                const Icon = SOCIAL_ICONS[(social as { platform?: string }).platform ?? ""] ?? Globe;
+                const Icon = SOCIAL_ICONS[social.platform ?? ""] ?? Globe;
                 return (
                   <a
-                    key={(social as { platform?: string }).platform ?? social.href}
+                    key={social.platform ?? social.href}
                     href={social.href ?? "#"}
                     target="_blank"
                     rel="noopener noreferrer"
-                    aria-label={(social as { platform?: string }).platform ?? "social"}
+                    aria-label={social.platform ?? "social"}
                     className="flex h-10 w-10 items-center justify-center rounded-full bg-background/10 transition hover:bg-accent hover:text-accent-foreground"
                   >
                     <Icon className="h-5 w-5" />

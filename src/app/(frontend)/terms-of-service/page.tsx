@@ -6,6 +6,7 @@ import { Header } from "@/components/header";
 import { FooterSection } from "@/components/landing/footer-section";
 import { MarkdownContent } from "@/components/markdown-content";
 import { defaultLocale } from "@/lib/i18n";
+import { resolveStr } from "@/lib/resolve-str";
 import { formatDate } from "@/lib/date-utils";
 import { sanityFetch } from "@/sanity/lib/live";
 import { getActiveLegalDocQuery, getLegalDocVersionsQuery } from "@/sanity/lib/queries";
@@ -40,7 +41,7 @@ export default async function TermsOfServicePage() {
               {t("legal")}
             </p>
             <h1 className="text-3xl font-bold tracking-tight sm:text-4xl">
-              {doc.title ?? t("termsOfService")}
+              {resolveStr(doc.title) ?? t("termsOfService")}
             </h1>
             <div className="mt-4 flex flex-wrap gap-4 text-sm text-muted-foreground">
               <span>
@@ -60,7 +61,7 @@ export default async function TermsOfServicePage() {
 
           {/* Content */}
           {doc.content ? (
-            <MarkdownContent content={doc.content} />
+            <MarkdownContent content={resolveStr(doc.content) ?? ""} />
           ) : (
             <p className="text-muted-foreground">{t("noContent")}</p>
           )}
@@ -70,7 +71,7 @@ export default async function TermsOfServicePage() {
             <div className="mt-16 border-t border-border pt-8">
               <h2 className="mb-4 text-lg font-semibold">{t("versionHistory")}</h2>
               <ul className="space-y-3">
-                {versions.map((v: { _id: string; version: string; effectiveDate: string | null; isActive: boolean | null; title: string | null; changelog: string | null }) => (
+                {versions.map((v) => (
                   <li key={v._id} className="flex flex-wrap items-baseline gap-3 text-sm">
                     <span className={`font-medium${v.isActive ? " text-primary" : " text-muted-foreground"}`}>
                       v{v.version}
@@ -87,8 +88,8 @@ export default async function TermsOfServicePage() {
                         day: "numeric",
                       })}
                     </span>
-                    {v.changelog && (
-                      <span className="text-muted-foreground">— {v.changelog}</span>
+                    {resolveStr(v.changelog) && (
+                      <span className="text-muted-foreground">— {resolveStr(v.changelog)}</span>
                     )}
                   </li>
                 ))}
