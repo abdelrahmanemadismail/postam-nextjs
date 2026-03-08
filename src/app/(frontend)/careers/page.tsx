@@ -5,6 +5,7 @@ import { Briefcase, MapPin, Clock, ArrowRight, Users } from "lucide-react";
 import { Header } from "@/components/header";
 import { FooterSection } from "@/components/landing/footer-section";
 import { defaultLocale } from "@/lib/i18n";
+import { resolveStr } from "@/lib/resolve-str";
 import { sanityFetch } from "@/sanity/lib/live";
 import { getOpenJobPostingsQuery } from "@/sanity/lib/queries";
 
@@ -32,21 +33,10 @@ export default async function CareersPage() {
     params: { locale, defaultLocale },
   });
 
-  type Job = {
-    _id: string;
-    title?: string | null;
-    slug?: string | null;
-    department?: string | null;
-    location?: string | null;
-    type?: string | null;
-    summary?: string | null;
-    publishedAt?: string | null;
-  };
-
-  const jobList: Job[] = (jobs ?? []) as Job[];
+  const jobList = jobs ?? [];
 
   // Group jobs by department
-  const grouped: Record<string, Job[]> = {};
+  const grouped: Record<string, typeof jobList> = {};
   for (const job of jobList) {
     const dept = job.department ?? "Other";
     if (!grouped[dept]) grouped[dept] = [];
@@ -133,18 +123,18 @@ export default async function CareersPage() {
                         >
                           <div className="flex-1">
                             <p className="font-semibold transition group-hover:text-primary">
-                              {job.title}
+                              {resolveStr(job.title)}
                             </p>
-                            {job.summary && (
+                            {resolveStr(job.summary) && (
                               <p className="mt-1 line-clamp-2 text-sm text-muted-foreground">
-                                {job.summary}
+                                {resolveStr(job.summary)}
                               </p>
                             )}
                             <div className="mt-3 flex flex-wrap gap-3 text-xs text-muted-foreground">
                               {job.location && (
                                 <span className="flex items-center gap-1">
                                   <MapPin className="h-3.5 w-3.5" />
-                                  {job.location}
+                                  {resolveStr(job.location)}
                                 </span>
                               )}
                               {job.type && (

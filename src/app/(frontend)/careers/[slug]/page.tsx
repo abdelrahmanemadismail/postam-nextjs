@@ -7,6 +7,7 @@ import { Header } from "@/components/header";
 import { FooterSection } from "@/components/landing/footer-section";
 import { MarkdownContent } from "@/components/markdown-content";
 import { defaultLocale } from "@/lib/i18n";
+import { resolveStr } from "@/lib/resolve-str";
 import { sanityFetch } from "@/sanity/lib/live";
 import { getJobPostingBySlugQuery } from "@/sanity/lib/queries";
 
@@ -53,16 +54,16 @@ export default async function JobPostingPage({
               <div>
                 {job.department && (
                   <p className="mb-2 text-sm font-semibold uppercase tracking-widest text-primary">
-                    {job.department}
+                    {resolveStr(job.department)}
                   </p>
                 )}
-                <h1 className="text-3xl font-bold sm:text-4xl">{job.title}</h1>
+                <h1 className="text-3xl font-bold sm:text-4xl">{resolveStr(job.title)}</h1>
 
                 <div className="mt-4 flex flex-wrap gap-4 text-sm text-muted-foreground">
                   {job.location && (
                     <span className="flex items-center gap-1.5">
                       <MapPin className="h-4 w-4" />
-                      {job.location}
+                      {resolveStr(job.location)}
                     </span>
                   )}
                   {job.type && (
@@ -73,7 +74,7 @@ export default async function JobPostingPage({
                   )}
                   <span className="flex items-center gap-1.5">
                     <Briefcase className="h-4 w-4" />
-                    {job.department}
+                    {resolveStr(job.department)}
                   </span>
                 </div>
               </div>
@@ -100,14 +101,14 @@ export default async function JobPostingPage({
               {job.description && (
                 <div>
                   <h2 className="mb-4 text-xl font-bold">{t("aboutRole")}</h2>
-                  <MarkdownContent content={job.description} />
+                  <MarkdownContent content={resolveStr(job.description) ?? ""} />
                 </div>
               )}
 
               {job.requirements && (
                 <div>
                   <h2 className="mb-4 text-xl font-bold">{t("requirements")}</h2>
-                  <MarkdownContent content={job.requirements} />
+                  <MarkdownContent content={resolveStr(job.requirements) ?? ""} />
                 </div>
               )}
             </div>
@@ -120,13 +121,13 @@ export default async function JobPostingPage({
                   {job.department && (
                     <div>
                       <dt className="text-muted-foreground">{t("department")}</dt>
-                      <dd className="font-medium">{job.department}</dd>
+                      <dd className="font-medium">{resolveStr(job.department)}</dd>
                     </div>
                   )}
                   {job.location && (
                     <div>
                       <dt className="text-muted-foreground">{t("location")}</dt>
-                      <dd className="font-medium">{job.location}</dd>
+                      <dd className="font-medium">{resolveStr(job.location)}</dd>
                     </div>
                   )}
                   {job.type && (
