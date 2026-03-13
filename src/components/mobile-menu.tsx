@@ -140,7 +140,7 @@ export function MobileMenu({ onClose, isOpen }: MobileMenuProps) {
             <SectionHeader title={t("nav.quick")} icon={ShoppingBag} />
             <SectionCard className="bg-gradient-to-br from-primary/12 via-primary/6 to-transparent border-primary/25 divide-y divide-primary/15 overflow-hidden">
               <MenuItem icon={ShoppingBag} label={t("nav.orders")} href="#" isPrimary onClose={onClose} />
-              <MenuItem icon={Heart} label={t("nav.favorites")} href="#" isPrimary onClose={onClose} />
+              {/* <MenuItem icon={Heart} label={t("nav.favorites")} href="#" isPrimary onClose={onClose} /> */}
             </SectionCard>
           </div>
 
