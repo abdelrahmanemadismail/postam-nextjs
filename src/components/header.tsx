@@ -73,12 +73,14 @@ export function Header() {
                 </Link>
               </Button>
               <Button
+                asChild
                 variant="ghost"
                 className="text-sm font-medium text-muted-foreground hover:text-primary gap-2"
-                onClick={() => {}}
               >
-                <Zap className="h-4 w-4" />
-                {t("nav.pricing")}
+                <Link href="/pricing">
+                  <Zap className="h-4 w-4" />
+                  {t("nav.pricing")}
+                </Link>
               </Button>
               <Button
                 asChild

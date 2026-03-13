@@ -256,6 +256,22 @@
     "notRightRoleDescription": "Tüm açık pozisyonları keşfedin ve becerilerinize en uygun eşleşmeyi bulun.",
     "viewAllRoles": "Tüm açık rolleri görüntüle"
   },
+  "pricing": {
+    "metaDescription": "Kargo ve alışveriş ihtiyaçlarınıza uygun fiyat planını seçin.",
+    "badge": "Fiyatlandırma",
+    "heroFallbackTitle": "Her alışverişçi için sade fiyatlandırma",
+    "heroFallbackDescription": "Sipariş hacminize ve destek ihtiyaçlarınıza uygun planı seçin. İstediğiniz zaman yükseltebilirsiniz.",
+    "plansTitle": "Planlar",
+    "noPlans": "Henüz fiyat planı bulunmuyor.",
+    "customPrice": "Özel",
+    "defaultPlanCta": "Başlayın",
+    "comparisonTitle": "Özellik Karşılaştırması",
+    "featureColumn": "Özellik",
+    "noComparison": "Karşılaştırma verileri henüz mevcut değil.",
+    "ctaFallbackHeading": "Özel bir çözüme mi ihtiyacınız var?",
+    "ctaFallbackDescription": "Ekibimizle görüşün, ihtiyaçlarınıza uygun planı birlikte seçelim.",
+    "ctaFallbackButton": "Satış Ekibiyle İletişim"
+  },
   "contactUs": {
     "badge": "İletişime Geçin",
     "heroTitle": "Yardım Etmek İçin Buradayız",

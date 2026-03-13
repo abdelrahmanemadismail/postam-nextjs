@@ -256,6 +256,22 @@
     "notRightRoleDescription": "استكشف جميع الوظائف المفتوحة وابحث عن التوافق المثالي لمهاراتك.",
     "viewAllRoles": "عرض جميع الوظائف المتاحة"
   },
+  "pricing": {
+    "metaDescription": "اختر خطة الأسعار المناسبة لاحتياجات الشحن والتسوق الخاصة بك.",
+    "badge": "الأسعار",
+    "heroFallbackTitle": "أسعار بسيطة لكل متسوق",
+    "heroFallbackDescription": "اختر الخطة المناسبة لحجم طلباتك واحتياجات الدعم لديك. يمكنك الترقية في أي وقت.",
+    "plansTitle": "الخطط",
+    "noPlans": "لا توجد خطط أسعار متاحة حتى الآن.",
+    "customPrice": "سعر مخصص",
+    "defaultPlanCta": "ابدأ الآن",
+    "comparisonTitle": "مقارنة المزايا",
+    "featureColumn": "الميزة",
+    "noComparison": "بيانات المقارنة غير متاحة حتى الآن.",
+    "ctaFallbackHeading": "تحتاج حلا مخصصا؟",
+    "ctaFallbackDescription": "تواصل مع فريقنا وسنساعدك في اختيار الخطة الأنسب لاحتياجاتك.",
+    "ctaFallbackButton": "تواصل مع المبيعات"
+  },
   "contactUs": {
     "badge": "تواصل معنا",
     "heroTitle": "نحن هنا للمساعدة",

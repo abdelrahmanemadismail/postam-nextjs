@@ -224,3 +224,43 @@ export const getJobPostingBySlugQuery = defineQuery(`
   applyUrl,
   publishedAt,
 }`);
+
+// ─── Pricing ─────────────────────────────────────────────────────────────────
+
+export const getPricingPageQuery = defineQuery(`
+*[_type == "pricingPage"][0]{
+  _id,
+  "heroHeading": coalesce(heroHeading[$locale], heroHeading[$defaultLocale], heroHeading.en),
+  "heroSubheading": coalesce(heroSubheading[$locale], heroSubheading[$defaultLocale], heroSubheading.en),
+  "plans": plans[]{
+    "name": coalesce(name[$locale], name[$defaultLocale], name.en),
+    "description": coalesce(description[$locale], description[$defaultLocale], description.en),
+    price,
+    currency,
+    "billingPeriod": coalesce(billingPeriod[$locale], billingPeriod[$defaultLocale], billingPeriod.en),
+    "features": features[]{
+      "text": coalesce(text[$locale], text[$defaultLocale], text.en),
+    },
+    "ctaText": coalesce(ctaText[$locale], ctaText[$defaultLocale], ctaText.en),
+    ctaHref,
+    highlighted,
+    order,
+  } | order(order asc),
+  "comparisonTable": {
+    "title": coalesce(comparisonTable.title[$locale], comparisonTable.title[$defaultLocale], comparisonTable.title.en),
+    "rows": comparisonTable.rows[]{
+      "feature": coalesce(feature[$locale], feature[$defaultLocale], feature.en),
+      "values": values[]{
+        planIndex,
+        "value": coalesce(value[$locale], value[$defaultLocale], value.en),
+        isIncluded,
+      },
+    },
+  },
+  "ctaSection": {
+    "heading": coalesce(ctaSection.heading[$locale], ctaSection.heading[$defaultLocale], ctaSection.heading.en),
+    "description": coalesce(ctaSection.description[$locale], ctaSection.description[$defaultLocale], ctaSection.description.en),
+    "buttonText": coalesce(ctaSection.buttonText[$locale], ctaSection.buttonText[$defaultLocale], ctaSection.buttonText.en),
+    "buttonLink": ctaSection.buttonLink,
+  },
+}`);

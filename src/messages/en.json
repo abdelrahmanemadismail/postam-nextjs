@@ -256,6 +256,22 @@
     "notRightRoleDescription": "Explore all our open positions and find the perfect fit for your skills.",
     "viewAllRoles": "View all open roles"
   },
+  "pricing": {
+    "metaDescription": "Choose the pricing plan that fits your shipping and shopping needs.",
+    "badge": "Pricing",
+    "heroFallbackTitle": "Simple pricing for every shopper",
+    "heroFallbackDescription": "Pick the plan that matches your order volume and support needs. Upgrade anytime as you grow.",
+    "plansTitle": "Plans",
+    "noPlans": "No pricing plans are available yet.",
+    "customPrice": "Custom",
+    "defaultPlanCta": "Get Started",
+    "comparisonTitle": "Feature Comparison",
+    "featureColumn": "Feature",
+    "noComparison": "Comparison data is not available yet.",
+    "ctaFallbackHeading": "Need a custom solution?",
+    "ctaFallbackDescription": "Talk to our team and we’ll help you choose the right plan for your needs.",
+    "ctaFallbackButton": "Contact Sales"
+  },
   "contactUs": {
     "badge": "Get in Touch",
     "heroTitle": "We're Here to Help",

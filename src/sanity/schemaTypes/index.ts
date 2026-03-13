@@ -13,6 +13,7 @@ import {postType} from './postType'
 import {siteSettingsType} from './siteSettingsType'
 import {testimonialType} from './testimonialType'
 import {jobPostingType} from './jobPostingType'
+import {pricingPageType} from './pricingPageType'
 
 export const schema: { types: SchemaTypeDefinition[] } = {
   types: [
@@ -29,5 +30,6 @@ export const schema: { types: SchemaTypeDefinition[] } = {
     siteSettingsType,
     testimonialType,
     jobPostingType,
+    pricingPageType,
   ],
 }
