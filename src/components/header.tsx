@@ -49,13 +49,13 @@ export function Header() {
       {/* Main Navigation */}
       <nav className="sticky top-0 z-40 border-b border-border bg-background/95 backdrop-blur-xl">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="flex h-16 sm:h-20 items-center justify-between gap-4">
+          <div className="flex h-14 items-center justify-between gap-2 sm:h-20 sm:gap-4">
             {/* Logo */}
-            <Link href="/" className="flex items-center gap-2.5 flex-shrink-0 hover:opacity-80 transition-opacity">
-              <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-gradient-to-br from-primary to-primary/80 text-lg font-bold text-primary-foreground shadow-lg">
+            <Link href="/" className="flex flex-shrink-0 items-center gap-2 transition-opacity hover:opacity-80 sm:gap-2.5">
+              <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-gradient-to-br from-primary to-primary/80 text-base font-bold text-primary-foreground shadow-lg sm:h-10 sm:w-10 sm:text-lg">
                 P
               </div>
-              <span className="text-xl sm:text-2xl font-bold tracking-tight bg-gradient-to-r from-primary to-primary/80 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-primary to-primary/80 bg-clip-text text-lg font-bold tracking-tight text-transparent sm:text-2xl">
                 Postam
               </span>
             </Link>
@@ -93,7 +93,7 @@ export function Header() {
             </div>
 
             {/* Right Actions */}
-            <div className="flex items-center gap-2 sm:gap-3">
+            <div className="flex items-center gap-1.5 sm:gap-3">
               {/* Desktop Login Button */}
               <Button
                 variant="ghost"
@@ -118,7 +118,7 @@ export function Header() {
                 size="icon"
                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
                 className="md:hidden"
-                aria-label="Open menu"
+                aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
               >
                 {isMobileMenuOpen ? (
                   <X className="h-5 w-5" />

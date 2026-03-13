@@ -10,7 +10,7 @@ export default function Home() {
     <div className="flex min-h-screen flex-col bg-background text-foreground">
       <Header />
 
-      <main>
+      <main className="overflow-x-hidden">
         <HeroSection />
         <ProcessSection />
         <BuyForMeSection />

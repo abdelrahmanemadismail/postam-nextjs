@@ -53,7 +53,7 @@ export default async function CareersPage() {
 
       <main className="flex-1">
         {/* ── Hero ────────────────────────────────────────────────────── */}
-        <section className="relative overflow-hidden bg-gradient-to-br from-primary via-primary/90 to-primary/70 py-24 text-primary-foreground">
+        <section className="relative overflow-hidden bg-gradient-to-br from-primary via-primary/90 to-primary/70 py-14 sm:py-20 lg:py-24 text-primary-foreground">
           <div className="pointer-events-none absolute -right-32 -top-32 h-96 w-96 rounded-full bg-primary-foreground/5" />
           <div className="pointer-events-none absolute -bottom-20 -left-20 h-72 w-72 rounded-full bg-primary-foreground/5" />
 
@@ -61,20 +61,20 @@ export default async function CareersPage() {
             <span className="mb-4 inline-block rounded-full bg-primary-foreground/15 px-4 py-1.5 text-xs font-bold uppercase tracking-widest">
               {t("badge")}
             </span>
-            <h1 className="text-4xl font-bold leading-tight sm:text-5xl lg:text-6xl">
+            <h1 className="text-3xl font-bold leading-tight sm:text-5xl lg:text-6xl">
               {t("heroTitle")}
             </h1>
-            <p className="mx-auto mt-6 max-w-2xl text-lg text-primary-foreground/80 leading-relaxed">
+            <p className="mx-auto mt-4 sm:mt-6 max-w-2xl text-base sm:text-lg text-primary-foreground/80 leading-relaxed">
               {t("heroDescription")}
             </p>
           </div>
         </section>
 
         {/* ── Why Join Us ─────────────────────────────────────────────── */}
-        <section className="py-20">
+        <section className="py-12 sm:py-16 md:py-20">
           <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-            <div className="mb-12 text-center">
-              <h2 className="text-3xl font-bold">{t("perksTitle")}</h2>
+            <div className="mb-8 sm:mb-12 text-center">
+              <h2 className="text-2xl font-bold sm:text-3xl">{t("perksTitle")}</h2>
               <p className="mt-3 text-muted-foreground">{t("perksSubtitle")}</p>
             </div>
             <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
@@ -97,15 +97,15 @@ export default async function CareersPage() {
         </section>
 
         {/* ── Open Positions ──────────────────────────────────────────── */}
-        <section className="bg-muted/40 py-20">
+        <section className="bg-muted/40 py-12 sm:py-16 md:py-20">
           <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
-            <div className="mb-12 text-center">
-              <h2 className="text-3xl font-bold">{t("openPositionsTitle")}</h2>
+            <div className="mb-8 sm:mb-12 text-center">
+              <h2 className="text-2xl font-bold sm:text-3xl">{t("openPositionsTitle")}</h2>
               <p className="mt-3 text-muted-foreground">{t("openPositionsSubtitle")}</p>
             </div>
 
             {departments.length === 0 ? (
-              <div className="rounded-2xl border border-border bg-card p-12 text-center">
+              <div className="rounded-2xl border border-border bg-card p-8 sm:p-12 text-center">
                 <Briefcase className="mx-auto mb-4 h-10 w-10 text-muted-foreground/50" />
                 <p className="text-muted-foreground">{t("noOpenings")}</p>
               </div>
@@ -160,9 +160,9 @@ export default async function CareersPage() {
         </section>
 
         {/* ── CTA ─────────────────────────────────────────────────────── */}
-        <section className="py-20">
+        <section className="py-12 sm:py-16 md:py-20">
           <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8 text-center">
-            <h2 className="text-3xl font-bold">{t("ctaTitle")}</h2>
+            <h2 className="text-2xl font-bold sm:text-3xl">{t("ctaTitle")}</h2>
             <p className="mt-4 text-muted-foreground">{t("ctaDescription")}</p>
             <a
               href="mailto:careers@postam.com"

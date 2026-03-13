@@ -64,26 +64,26 @@ export default async function ContactPage() {
 
       <main className="flex-1">
         {/* ── Hero ───────────────────────────────────────────────────── */}
-        <section className="relative overflow-hidden bg-gradient-to-br from-primary via-primary/90 to-primary/70 py-24 text-primary-foreground">
+        <section className="relative overflow-hidden bg-gradient-to-br from-primary via-primary/90 to-primary/70 py-14 sm:py-20 lg:py-24 text-primary-foreground">
           <div className="pointer-events-none absolute -right-32 -top-32 h-96 w-96 rounded-full bg-primary-foreground/5" />
           <div className="pointer-events-none absolute -bottom-20 -left-20 h-72 w-72 rounded-full bg-primary-foreground/5" />
           <div className="relative mx-auto max-w-5xl px-4 text-center sm:px-6 lg:px-8">
             <span className="mb-4 inline-block rounded-full bg-primary-foreground/15 px-4 py-1.5 text-xs font-bold uppercase tracking-widest">
               {t("badge")}
             </span>
-            <h1 className="text-4xl font-bold leading-tight sm:text-5xl lg:text-6xl">
+            <h1 className="text-3xl font-bold leading-tight sm:text-5xl lg:text-6xl">
               {t("heroTitle")}
             </h1>
-            <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-primary-foreground/80">
+            <p className="mx-auto mt-4 sm:mt-6 max-w-2xl text-base sm:text-lg leading-relaxed text-primary-foreground/80">
               {t("heroDescription")}
             </p>
           </div>
         </section>
 
         {/* ── Contact Channels ───────────────────────────────────────── */}
-        <section className="py-20">
+        <section className="py-12 sm:py-16 md:py-20">
           <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-            <h2 className="mb-10 text-center text-2xl font-bold sm:text-3xl">
+            <h2 className="mb-6 sm:mb-10 text-center text-2xl font-bold sm:text-3xl">
               {t("channelsTitle")}
             </h2>
             <div className="grid gap-6 sm:grid-cols-3">
@@ -93,7 +93,7 @@ export default async function ContactPage() {
                   href={href}
                   target={href.startsWith("http") ? "_blank" : undefined}
                   rel="noopener noreferrer"
-                  className="group flex flex-col rounded-2xl border border-border bg-card p-7 shadow-sm transition hover:-translate-y-0.5 hover:shadow-md"
+                  className="group flex flex-col rounded-2xl border border-border bg-card p-5 sm:p-7 shadow-sm transition hover:-translate-y-0.5 hover:shadow-md"
                 >
                   <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10 text-primary transition group-hover:bg-primary group-hover:text-primary-foreground">
                     <Icon className="h-6 w-6" />
@@ -113,7 +113,7 @@ export default async function ContactPage() {
         </section>
 
         {/* ── Form + Offices ─────────────────────────────────────────── */}
-        <section className="border-t border-border bg-muted/40 py-20">
+        <section className="border-t border-border bg-muted/40 py-12 sm:py-16 md:py-20">
           <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
             <div className="grid gap-12 lg:grid-cols-5">
               {/* Form */}

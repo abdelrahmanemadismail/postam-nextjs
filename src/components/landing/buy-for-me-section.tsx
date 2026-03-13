@@ -7,17 +7,17 @@ export function BuyForMeSection() {
   const t = useTranslations();
 
   return (
-    <section className="relative overflow-hidden py-20">
+    <section className="relative overflow-hidden py-12 sm:py-16 md:py-20">
       <div className="absolute inset-0 bg-primary/5" />
-      <div className="relative z-10 mx-auto max-w-4xl px-4">
-        <div className="rounded-2xl border border-border bg-background p-8 text-center shadow-2xl md:p-12">
-          <div className="mx-auto mb-6 flex h-12 w-12 items-center justify-center rounded-full bg-primary/10 text-primary">
+      <div className="relative z-10 mx-auto max-w-4xl px-4 sm:px-6">
+        <div className="rounded-xl border border-border bg-background p-5 text-center shadow-2xl sm:rounded-2xl sm:p-8 md:p-12">
+          <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-primary/10 text-primary sm:mb-6">
             <ShoppingBag className="h-6 w-6" />
           </div>
-          <h2 className="mb-4 text-3xl font-bold text-foreground">
+          <h2 className="mb-3 text-2xl font-bold text-foreground sm:mb-4 sm:text-3xl">
             {t("buyForMe.title")}
           </h2>
-          <p className="mx-auto mb-8 max-w-lg text-muted-foreground">
+          <p className="mx-auto mb-6 max-w-lg text-sm text-muted-foreground sm:mb-8 sm:text-base">
             {t("buyForMe.description")}
           </p>
           <div className="mx-auto flex max-w-2xl flex-col gap-4 md:flex-row">
@@ -26,10 +26,10 @@ export function BuyForMeSection() {
               <input
                 type="text"
                 placeholder={t("buyForMe.placeholder")}
-                className="w-full rounded-lg border border-input bg-background py-4 ps-10 pe-3 text-sm text-foreground shadow-sm outline-none transition focus:border-primary focus:ring-2 focus:ring-primary/30"
+                className="w-full rounded-lg border border-input bg-background py-3 ps-10 pe-3 text-sm text-foreground shadow-sm outline-none transition focus:border-primary focus:ring-2 focus:ring-primary/30 sm:py-4"
               />
             </div>
-            <button className="whitespace-nowrap rounded-lg bg-primary px-8 py-4 text-sm font-bold text-primary-foreground shadow-lg shadow-primary/25 transition hover:bg-primary/90">
+            <button className="w-full whitespace-nowrap rounded-lg bg-primary px-8 py-3 text-sm font-bold text-primary-foreground shadow-lg shadow-primary/25 transition hover:bg-primary/90 sm:py-4 md:w-auto">
               {t("buyForMe.button")}
             </button>
           </div>

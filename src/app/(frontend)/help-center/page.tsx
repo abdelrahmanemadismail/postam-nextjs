@@ -49,7 +49,7 @@ export default async function HelpCenterPage() {
           <div className="pointer-events-none absolute right-0 top-0 h-full w-1/3 bg-gradient-to-l from-primary/10 to-transparent" />
 
           <div className="relative mx-auto max-w-[960px] px-4 text-center">
-            <h1 className="mb-4 text-4xl font-black leading-tight tracking-tight text-foreground md:text-5xl">
+            <h1 className="mb-4 text-3xl font-black leading-tight tracking-tight text-foreground sm:text-4xl md:text-5xl">
               {t("heroTitle")}
             </h1>
             <p className="mx-auto mb-10 max-w-xl text-base text-muted-foreground md:text-lg">
@@ -66,7 +66,7 @@ export default async function HelpCenterPage() {
         </section>
 
         {/* ── Categories ────────────────────────────────────────── */}
-        <section className="mx-auto w-full max-w-[960px] px-4 py-16">
+        <section className="mx-auto w-full max-w-[960px] px-4 py-10 sm:py-16">
           <h2 className="mb-8 text-2xl font-bold text-foreground">
             {t("browseCategories")}
           </h2>
@@ -98,7 +98,7 @@ export default async function HelpCenterPage() {
 
         {/* ── Top FAQs ──────────────────────────────────────────── */}
         {faqs && faqs.length > 0 && (
-          <section className="border-y border-border bg-card py-16">
+          <section className="border-y border-border bg-card py-10 sm:py-16">
             <div className="mx-auto max-w-[960px] px-4">
               <div className="mb-8 flex items-center justify-between">
                 <h2 className="text-2xl font-bold text-foreground">
@@ -124,7 +124,7 @@ export default async function HelpCenterPage() {
         )}
 
         {/* ── Contact ───────────────────────────────────────────── */}
-        <section className="bg-background py-16">
+        <section className="bg-background py-10 sm:py-16">
           <div className="mx-auto max-w-[960px] px-4 text-center">
             <h2 className="mb-4 text-2xl font-bold text-foreground">
               {t("stillNeedHelp")}

@@ -17,17 +17,17 @@ export function useMarkdownComponents(): Components {
   return {
     // Headings
     h1: ({ children }) => (
-      <h1 className="mb-6 mt-8 scroll-m-20 text-4xl font-bold tracking-tight first:mt-0 text-start">
+      <h1 className="mb-6 mt-8 scroll-m-20 text-2xl font-bold tracking-tight first:mt-0 sm:text-4xl text-start">
         {children}
       </h1>
     ),
     h2: ({ children }) => (
-      <h2 className="mb-4 mt-8 scroll-m-20 border-b border-border pb-2 text-3xl font-semibold tracking-tight first:mt-0 text-start">
+      <h2 className="mb-4 mt-8 scroll-m-20 border-b border-border pb-2 text-xl font-semibold tracking-tight first:mt-0 sm:text-3xl text-start">
         {children}
       </h2>
     ),
     h3: ({ children }) => (
-      <h3 className="mb-4 mt-6 scroll-m-20 text-2xl font-semibold tracking-tight text-start">
+      <h3 className="mb-4 mt-6 scroll-m-20 text-lg font-semibold tracking-tight sm:text-2xl text-start">
         {children}
       </h3>
     ),

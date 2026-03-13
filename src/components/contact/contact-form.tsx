@@ -110,7 +110,7 @@ export function ContactForm() {
         <textarea
           id="message"
           name="message"
-          rows={6}
+          rows={5}
           required
           value={formState.message}
           onChange={handleChange}
@@ -121,7 +121,7 @@ export function ContactForm() {
 
       <button
         type="submit"
-        className="inline-flex items-center gap-2 rounded-lg bg-primary px-7 py-3 font-semibold text-primary-foreground shadow transition hover:bg-primary/90 hover:shadow-md"
+        className="inline-flex w-full items-center justify-center gap-2 rounded-lg bg-primary px-7 py-3 font-semibold text-primary-foreground shadow transition hover:bg-primary/90 hover:shadow-md sm:w-auto sm:justify-start"
       >
         <Send className="h-4 w-4" />
         {t("submitButton")}

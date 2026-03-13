@@ -140,7 +140,7 @@ export default async function BlogPage({
               <span className="h-2 w-2 animate-pulse rounded-full bg-primary" />
               {t("badge")}
             </span>
-            <h1 className="mt-6 text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl">
+            <h1 className="mt-6 text-3xl font-bold tracking-tight sm:text-5xl lg:text-6xl">
               {t("titlePrefix")} <span className="text-primary">{t("titleHighlight")}</span>
             </h1>
             <p className="mx-auto mt-4 max-w-2xl text-muted-foreground sm:text-lg">
@@ -244,7 +244,7 @@ export default async function BlogPage({
             <div className="mx-auto mb-6 flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10 text-primary">
               <Mail className="h-6 w-6" />
             </div>
-            <h3 className="text-3xl font-bold">{t("newsletterTitle")}</h3>
+            <h3 className="text-2xl font-bold sm:text-3xl">{t("newsletterTitle")}</h3>
             <p className="mx-auto mt-4 max-w-2xl text-muted-foreground">
               {t("newsletterDescription")}
             </p>

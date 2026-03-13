@@ -55,9 +55,9 @@ export default async function HelpArticlePage({ params }: PageProps) {
     <div className="flex min-h-screen flex-col bg-background text-foreground">
       <Header />
 
-      <div className="mx-auto flex w-full max-w-[1200px] flex-1 flex-col gap-12 px-4 py-8 md:flex-row md:px-10 lg:px-16">
-        {/* ── Sidebar ─────────────────────────────────────────── */}
-        <aside className="w-full flex-shrink-0 md:w-64">
+      <div className="mx-auto flex w-full max-w-[1200px] flex-1 flex-col gap-8 px-4 py-8 md:flex-row md:gap-12 md:px-10 lg:px-16">
+        {/* ── Sidebar ────────────────────────────────────── */}
+        <aside className="order-last w-full flex-shrink-0 md:order-first md:w-64">
           <div className="sticky top-24 space-y-6">
             {/* Back link */}
             <Link
@@ -135,7 +135,7 @@ export default async function HelpArticlePage({ params }: PageProps) {
             {resolveStr(article.title)}
           </h1>
           {resolveStr(article.excerpt) && (
-            <p className="mb-10 text-lg leading-relaxed text-muted-foreground">
+            <p className="mb-8 sm:mb-10 text-base sm:text-lg leading-relaxed text-muted-foreground">
               {resolveStr(article.excerpt)}
             </p>
           )}
@@ -158,7 +158,7 @@ export default async function HelpArticlePage({ params }: PageProps) {
           </div>
 
           {/* Support CTA */}
-          <div className="relative mt-12 overflow-hidden rounded-2xl bg-foreground p-8">
+          <div className="relative mt-10 sm:mt-12 overflow-hidden rounded-2xl bg-foreground p-5 sm:p-8">
             <div className="absolute -right-12 -top-12 h-48 w-48 rounded-full bg-primary/10 blur-3xl" />
             <div className="relative z-10 flex flex-col items-center gap-6 text-center md:flex-row md:justify-between md:text-left">
               <div>

@@ -44,7 +44,7 @@ export function HelpSearchBox({
         />
         <div className="flex items-center pr-2">
           <button
-            className="flex h-10 items-center gap-2 rounded-lg bg-primary px-6 font-bold text-primary-foreground transition-all hover:bg-primary/90 md:h-12"
+            className="flex h-10 items-center gap-2 rounded-lg bg-primary px-3 sm:px-6 text-sm font-bold text-primary-foreground transition-all hover:bg-primary/90 md:h-12"
             onClick={handleSearch}
           >
             {searchLabel}

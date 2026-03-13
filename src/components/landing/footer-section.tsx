@@ -46,30 +46,30 @@ export async function FooterSection() {
   const offices = settings?.offices ?? [];
 
   return (
-    <footer className="mt-auto bg-foreground pt-16 text-background">
+    <footer className="mt-auto bg-foreground pt-12 text-background sm:pt-16">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Trust badges */}
-        <div className="grid gap-8 border-b border-background/20 pb-12 md:grid-cols-4">
+        <div className="grid grid-cols-4 gap-2 border-b border-background/20 pb-8 sm:gap-8 sm:pb-12 lg:grid-cols-4">
           <div className="flex flex-col items-center text-center">
-            <Clock className="mb-3 h-8 w-8 text-accent" />
-            <h4 className="text-sm font-semibold">{t("footer.badges.onTime")}</h4>
+            <Clock className="mb-2 h-5 w-5 text-accent sm:mb-3 sm:h-8 sm:w-8" />
+            <h4 className="text-[10px] font-semibold leading-tight sm:text-sm">{t("footer.badges.onTime")}</h4>
           </div>
           <div className="flex flex-col items-center text-center">
-            <CreditCard className="mb-3 h-8 w-8 text-accent" />
-            <h4 className="text-sm font-semibold">{t("footer.badges.singlePrice")}</h4>
+            <CreditCard className="mb-2 h-5 w-5 text-accent sm:mb-3 sm:h-8 sm:w-8" />
+            <h4 className="text-[10px] font-semibold leading-tight sm:text-sm">{t("footer.badges.singlePrice")}</h4>
           </div>
           <div className="flex flex-col items-center text-center">
-            <ShieldCheck className="mb-3 h-8 w-8 text-accent" />
-            <h4 className="text-sm font-semibold">{t("footer.badges.secure")}</h4>
+            <ShieldCheck className="mb-2 h-5 w-5 text-accent sm:mb-3 sm:h-8 sm:w-8" />
+            <h4 className="text-[10px] font-semibold leading-tight sm:text-sm">{t("footer.badges.secure")}</h4>
           </div>
           <div className="flex flex-col items-center text-center">
-            <Headphones className="mb-3 h-8 w-8 text-accent" />
-            <h4 className="text-sm font-semibold">{t("footer.badges.support")}</h4>
+            <Headphones className="mb-2 h-5 w-5 text-accent sm:mb-3 sm:h-8 sm:w-8" />
+            <h4 className="text-[10px] font-semibold leading-tight sm:text-sm">{t("footer.badges.support")}</h4>
           </div>
         </div>
 
         {/* Main links + offices */}
-        <div className="grid gap-12 py-12 md:grid-cols-12">
+        <div className="grid gap-8 py-10 sm:gap-12 sm:py-12 md:grid-cols-12">
           {/* Brand + social */}
           <div className="md:col-span-4">
             <div className="mb-6 flex items-center gap-2">
@@ -81,7 +81,7 @@ export async function FooterSection() {
             <p className="mb-6 text-sm text-muted-foreground">
               {t("footer.about.description")}
             </p>
-            <div className="flex gap-4">
+            <div className="flex flex-wrap gap-3 sm:gap-4">
               {socialLinks.map((social) => {
                 const Icon = SOCIAL_ICONS[social.platform ?? ""] ?? Globe;
                 return (
@@ -170,9 +170,9 @@ export async function FooterSection() {
         </div>
 
         {/* Bottom bar */}
-        <div className="flex flex-col items-center justify-between gap-4 border-t border-background/20 py-8 text-xs text-muted-foreground md:flex-row">
-          <p>{t("footer.legal.copyright")}</p>
-          <div className="flex flex-wrap gap-6">
+        <div className="flex flex-col items-center justify-between gap-4 border-t border-background/20 py-8 text-center text-xs text-muted-foreground md:flex-row md:text-left">
+          <p className="w-full md:w-auto">{t("footer.legal.copyright")}</p>
+          <div className="flex flex-wrap justify-center gap-x-4 gap-y-2 sm:gap-x-6 md:justify-end">
             <Link className="transition hover:text-background" href="/about">
               {companyLinks[0] ?? "About Us"}
             </Link>

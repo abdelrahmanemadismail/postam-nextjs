@@ -61,7 +61,7 @@ export default async function BlogPostPage({
     <div className="flex min-h-screen flex-col bg-background text-foreground">
       <Header />
       <main className="flex-1">
-        <article className="mx-auto w-full max-w-4xl px-4 py-10 sm:px-6 lg:py-14">
+        <article className="mx-auto w-full max-w-4xl px-4 py-8 sm:px-6 lg:py-14">
           <Button asChild variant="ghost" className="mb-6 px-0 text-muted-foreground">
             <Link href="/blog">← {t("backToBlog")}</Link>
           </Button>
@@ -80,8 +80,8 @@ export default async function BlogPostPage({
             )}
           </div>
 
-          <h1 className="text-3xl font-bold tracking-tight sm:text-5xl">{post.title}</h1>
-          {post.excerpt ? <p className="mt-4 text-lg text-muted-foreground">{post.excerpt}</p> : null}
+          <h1 className="text-2xl font-bold tracking-tight sm:text-4xl md:text-5xl">{post.title}</h1>
+          {post.excerpt ? <p className="mt-3 sm:mt-4 text-base sm:text-lg text-muted-foreground">{post.excerpt}</p> : null}
 
           <div className="mt-6 flex items-center gap-4 text-sm text-muted-foreground">
             <time>
