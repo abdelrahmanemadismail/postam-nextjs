@@ -40,7 +40,9 @@ export function ProcessSection() {
               {/* background step number */}
               <span
                 className={`pointer-events-none absolute -bottom-4 select-none text-[9rem] font-black leading-none text-foreground/[0.05] transition group-hover:text-primary/[0.09] ${
-                  index % 2 === 1 ? "-top-4 -left-2 bottom-auto" : "-top-4 -right-2 bottom-auto"
+                  index % 2 === 1
+                    ? "-top-4 -left-2 bottom-auto sm:-right-2 sm:left-auto"
+                    : "-top-4 -right-2 bottom-auto"
                 }`}
               >
                 {step.number}
