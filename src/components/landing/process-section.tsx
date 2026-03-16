@@ -46,30 +46,13 @@ export function ProcessSection() {
                 {step.number}
               </span>
               {/* step badge */}
-              <div
-                className={`mb-5 flex items-center gap-3 ${
-                  index % 2 === 1 ? "justify-end sm:justify-start" : "justify-start"
-                } rtl:flex-row-reverse`}
-              >
-                <div className="flex h-14 w-14 items-center justify-center rounded-xl bg-primary/10 text-primary transition group-hover:bg-primary group-hover:text-primary-foreground">
-                  <step.icon className="h-7 w-7" />
-                </div>
-                <span className="text-xs font-semibold uppercase tracking-widest text-muted-foreground">
-                  {t("process.step")} {String(step.number).padStart(2, "0")}
-                </span>
+              <div className="mx-auto mb-6 flex h-14 w-14 items-center justify-center rounded-xl bg-primary/10 text-primary transition group-hover:bg-primary group-hover:text-primary-foreground">
+                <step.icon className="h-7 w-7" />
               </div>
-              <h3
-                className={`mb-2 text-lg font-bold text-foreground ${
-                  index % 2 === 1 ? "text-right sm:text-left" : "text-left"
-                } rtl:text-right`}
-              >
+              <h3 className="mb-2 text-lg font-bold text-foreground">
                 {step.title}
               </h3>
-              <p
-                className={`text-sm text-muted-foreground ${
-                  index % 2 === 1 ? "text-right sm:text-left" : "text-left"
-                } rtl:text-right`}
-              >
+              <p className="text-sm text-muted-foreground">
                 {step.description}
               </p>
             </div>
