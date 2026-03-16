@@ -32,17 +32,25 @@ export function ProcessSection() {
           {t("process.description")}
         </p>
         <div className="mt-10 grid gap-5 sm:mt-16 sm:gap-6 md:grid-cols-2 md:gap-8 lg:grid-cols-4">
-          {steps.map((step) => (
+          {steps.map((step, index) => (
             <div
               key={step.title}
               className="group relative overflow-hidden rounded-2xl border border-border bg-card p-5 transition hover:border-primary/50 sm:p-6"
             >
               {/* background step number */}
-              <span className="pointer-events-none absolute -bottom-4 -right-2 select-none text-[9rem] font-black leading-none text-foreground/[0.05] transition group-hover:text-primary/[0.09]">
+              <span
+                className={`pointer-events-none absolute -bottom-4 select-none text-[9rem] font-black leading-none text-foreground/[0.05] transition group-hover:text-primary/[0.09] ${
+                  index % 2 === 1 ? "-top-4 -left-2 bottom-auto" : "-top-4 -right-2 bottom-auto"
+                }`}
+              >
                 {step.number}
               </span>
               {/* step badge */}
-              <div className="mb-5 flex items-center gap-3 rtl:flex-row-reverse">
+              <div
+                className={`mb-5 flex items-center gap-3 ${
+                  index % 2 === 1 ? "justify-end sm:justify-start" : "justify-start"
+                } rtl:flex-row-reverse`}
+              >
                 <div className="flex h-14 w-14 items-center justify-center rounded-xl bg-primary/10 text-primary transition group-hover:bg-primary group-hover:text-primary-foreground">
                   <step.icon className="h-7 w-7" />
                 </div>
@@ -50,10 +58,18 @@ export function ProcessSection() {
                   {t("process.step")} {String(step.number).padStart(2, "0")}
                 </span>
               </div>
-              <h3 className="mb-2 text-left text-lg font-bold text-foreground rtl:text-right">
+              <h3
+                className={`mb-2 text-lg font-bold text-foreground ${
+                  index % 2 === 1 ? "text-right sm:text-left" : "text-left"
+                } rtl:text-right`}
+              >
                 {step.title}
               </h3>
-              <p className="text-left text-sm text-muted-foreground rtl:text-right">
+              <p
+                className={`text-sm text-muted-foreground ${
+                  index % 2 === 1 ? "text-right sm:text-left" : "text-left"
+                } rtl:text-right`}
+              >
                 {step.description}
               </p>
             </div>
