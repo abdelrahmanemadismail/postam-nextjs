@@ -38,23 +38,24 @@
   },
   "process": {
     "label": "Basit Süreç",
+    "step": "Adım",
     "title": "Türkiye'den Kapınıza",
     "description": "Lojistiği biz hallederiz, siz alışverişin keyfini çıkarın. Postam uluslararası alışverişi kolaylaştırır.",
     "steps": [
       {
-        "title": "1. Ücretsiz Kaydol",
+        "title": "Ücretsiz Kaydol",
         "description": "Saniyeler içinde kaydolun ve size özel Türk kargo adresinizi alın."
       },
       {
-        "title": "2. Butiklerden Alışveriş",
+        "title": "Butiklerden Alışveriş",
         "description": "Yeni adresinizi Trendyol, Hepsiburada ve diğerlerinde kullanın."
       },
       {
-        "title": "3. Paketleri Birleştiriyoruz",
+        "title": "Paketleri Birleştiriyoruz",
         "description": "Birden fazla paketi tek kutuda birleştirerek kargoda %80'e varan tasarruf sağlayın."
       },
       {
-        "title": "4. Hızlı Teslimat",
+        "title": "Hızlı Teslimat",
         "description": "Ürünlerinizi Kuveyt'e 2-4 iş gününde ekspres kargoyla alın."
       }
     ]

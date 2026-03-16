@@ -38,23 +38,24 @@
   },
   "process": {
     "label": "Simple Process",
+    "step": "Step",
     "title": "From Turkey to Your Doorstep",
     "description": "We handle the logistics so you can enjoy the shopping. Here is how Postam makes international shopping effortless.",
     "steps": [
       {
-        "title": "1. Register Free",
+        "title": "Register Free",
         "description": "Sign up in seconds and receive your personal Turkish shipping address instantly."
       },
       {
-        "title": "2. Shop Boutiques",
+        "title": "Shop Boutiques",
         "description": "Use your new address at checkout on Trendyol, Hepsiburada, and more."
       },
       {
-        "title": "3. We Consolidate",
+        "title": "We Consolidate",
         "description": "Combine multiple packages into one box to save up to 80% on shipping costs."
       },
       {
-        "title": "4. Fast Delivery",
+        "title": "Fast Delivery",
         "description": "Receive your goods in Kuwait within 2-4 business days via express carriers."
       }
     ]
